@@ -1,10 +1,10 @@
 function searchCook(){
-var element = document.getElementById('area_search');
+//var element = document.getElementById('area_search');
 
-	if(element.selectedIndex == 0){
+	//if(element.selectedIndex == 0){
 		// Validation failed
-		alert('Please select a area');
-	}else{
+//		alert('Please select a area');
+//	}else{
 		// Fetch the json based on the 
 		$.get( "users", function( data ) {
 			//  $( ".result" ).html( data );
@@ -21,6 +21,6 @@ var element = document.getElementById('area_search');
 //        var html = '<li style="height:120px;"><img src="" alt="image_not_provided" style="width:100px; float:left;"><div style= "overflow:hidden; padding-left:80px;">		<div>'+this.name+'</div><div>'+this.gender+'</div></li><br/>';
 //        $('#results-ul').append(html);
 //     });
-	}
+//	}
 		
 }
