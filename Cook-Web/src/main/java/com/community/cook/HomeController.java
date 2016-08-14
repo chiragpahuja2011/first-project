@@ -1,17 +1,14 @@
-
 package com.community.cook;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Handles requests for the application home page.
@@ -25,18 +22,35 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-//		logger.info("Welcome home! The client locale is {}.", locale);
-//		
-//		Date date = new Date();
-//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-//		
-//		String formattedDate = dateFormat.format(date);
-//		
-//		model.addAttribute("serverTime", formattedDate );
-//		
+	public String home() {		
 		System.out.println("Hi ");
 		return ("home.html");
 	}
 	
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	@ResponseBody
+	public List<UserInformation> getUserInfo(){
+		List<UserInformation> userInfos = new ArrayList<UserInformation>();
+		UserInformation user1 = new UserInformation();
+		user1.setFirstName("Chirag");
+		user1.setLastName("Pahuja");
+		user1.setImageURL("http://abc.com");
+		List<String> speciality = new ArrayList<String>();
+		speciality.add("Nopth");
+		speciality.add("South");
+		user1.setSpeciality(speciality);
+		userInfos.add(user1);
+		
+		UserInformation user2 = new UserInformation();
+		user2.setFirstName("Harish");
+		user2.setLastName("Chauhan");
+		user2.setImageURL("http://abc.com");
+		user2.setSpeciality(speciality);
+		userInfos.add(user2);
+		return userInfos;
+
+	}
+
+	
 }
+
