@@ -14,6 +14,7 @@ for (var i = 0, l = params.length; i < l; i++) {
     data[tmp[0]] = tmp[1];
 }
 var element = document.getElementById('area_search');
+console.log(data.area);
 element.value = data.area;
 }
 </script>
@@ -22,6 +23,9 @@ element.value = data.area;
 <<<<<<< HEAD
 <body id="universe" onload="testScript();">
 <header id="head" >
+	<div id="homeButton">
+		<a class="hLink" href="_blank">Home</a>
+	</div>
 	<span id="title">FIND COOK</span>
 =======
 <body id="Universe" onload="testScript();">
@@ -35,18 +39,18 @@ element.value = data.area;
 		
 <div id= "searchBar">	
 				<span id="locationText">Select Your Location!</span>
-				<table id="location">
+				<table id="location" align="center">
 					<tr>
-						<th>State</th>
+						<th>City</th>
 						<td><select name="City">
-								<option value="Bangalore">Haryana</option>
+								<option value="Bangalore" selected>Bangalore</option>
 						</select></td>
 
-						<th>City</th>
-						<td><select name="Area">
-								<option value="E-City Phase-1">Ambala</option>
-								<option value="E-City Phase-2">Bangalore</option>
-								<option value="BTM">Chennai</option>
+						<th>Area</th>
+						<td><select name="Area", id ="area_search">
+								<option value="ecity_phase_1">E city phase-1</option>
+								<option value="ecity_phase_2">E-City Phase-2</option>
+								<option value="BTM">BTM</option>
 						</select></td>
 						<td><input type="submit" value="Search" class="submitButton"
 							style="border: outset; border-width: 0px; margin-top:0;" onclick="searchCook();"></input>

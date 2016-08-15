@@ -16,7 +16,17 @@
 	border-radius:10px;
 /*	font-family:'Ubuntu Condensed', sans-serif; */ 	   
 }
+#homeButton{
+	float:left;
+	margin-left:20px;
+	margin-top:20px;
+}
 
+.hLink{
+	color:white;
+	font-size:1.5em;
+	text-decoration:none;
+}
 
 #title{
 	float:left;
@@ -30,15 +40,18 @@
 
 #searchBar{
 	text-align:center;
+	margin-top:30px;
+	margin-left:0px;
+	font-size:2.5em;
 }
 #locationText{
-	margin-left:100px;
+/*	margin-left:100px;        */
 	font-size:0.8em;
 	margin-bottom:3px;
 	margin-top:3px;
 }
 #location{
-	margin-left:100px;
+/*	margin-left:100px;         */
 	font-size:0.6em;     /*this font size is relative to body left because it is a child of body left. it will be helpful when we make it responsive*/	
 }
 
