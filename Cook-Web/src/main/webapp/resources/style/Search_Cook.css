@@ -1,0 +1,77 @@
+/*@media (min-width:1166px){          */
+#Universe{
+	color:gray;
+/*	font-family:candara, calibri, sans-serif;              
+        font-family:'MidietSansMedium',"Trebuchet MS",Arial,Tahoma,sans-serif;   */
+	font-size:1em;
+	background:#E5E5E5; 
+        font-family: helvetica, sans-serif;
+}
+
+#Head{
+	height:70px;
+        background-color:rgba(0,0,0,0.8);
+	background:repeating-linear-gradient(black, gray 2px);     
+	border-radius:10px;
+	font-family:verdana; 	
+}
+
+
+#Title{
+	float:left;
+	margin-left:500px;     
+	font-size:1.5em;        
+	color:white;
+	margin-top:20px;
+	
+}
+
+#Search_Bar{
+	text-align:center;
+}
+#Location_Text{
+/*	text-align:left;
+	margin-left:250px;     */
+	font-size:0.8em;
+	margin-bottom:3px;
+	margin-top:3px;
+}
+#Location{
+	margin-left:100px;
+	font-size:0.6em;     /*this font size is relative to body left because it is a child of body left. it will be helpful when we make it responsive*/	
+}
+
+#Location select:hover{
+	box-shadow:0.5px 0.5px black;
+}
+
+#Location select{
+	padding:3px;
+	margin:4px;
+	border:0; 
+	-moz-appearance:none; /* Firefox */           
+	height:40px;
+        width:120px;  
+	border-color:rgb(0, 153, 153);
+	background-color:white;
+}
+
+#Submit_Button{
+	cursor:pointer;
+	cursor:hand;
+	background-color:rgba(213,94,22,0.9);
+	height:40px;
+	width:120px;
+	margin-top:10px;
+	color:white;
+	font-family:calibri,sans-serif;
+	font-size:1em;
+}
+
+#Image{
+	width:150px;
+	height:150px;
+}
+
+
+/*  }   */

@@ -1,94 +1,65 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Serach Banane Wala</title>  
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="images/favicon.ico"/>
-	<link rel="stylesheet"  href="style/responsive/home.css">
-	<script type="text/javascript" src = "js/cookSearch.js"></script>
-	<script type="text/javascript" src = "js/jquery.min.js"></script>
-	
+<title>Cook Search </title>  
+<meta charset="utf-8">
+<link rel="stylesheet" href="resources/style/Search_Cook.css"></link>
+<script>
+function testScript(){
+var url = document.location.href,
+   params = url.split('?')[1].split('&'),
+   data = {}, tmp;
+for (var i = 0, l = params.length; i < l; i++) {
+    tmp = params[i].split('=');
+    data[tmp[0]] = tmp[1];
+}
+var element = document.getElementById('area_search');
+element.value = data.area;
+}
+</script>
+
 </head>
-<body>
-<header class="main-header" >
-	<span class ="header-div left-float">FIND COOK</span>
-	<span class= "header-div right-float"><a>Sign In</a></span>
+<body id="Universe" onload="testScript();">
+<header id="Head" >
+	<p id="Title">FIND COOK</p>
 </header>
+		
+<div id= "Search_Bar">	
+				<p id="Location_Text">Select Your Location!</p>
+				<table id="Location">
+					<tr>
+						<th>State</th>
+						<td><select name="City">
+								<option value="Bangalore">Haryana</option>
+						</select></td>
 
-<nav>
+						<th>City</th>
+						<td><select name="Area">
+								<option value="E-City Phase-1">Ambala</option>
+								<option value="E-City Phase-2">Bangalore</option>
+								<option value="BTM">Chennai</option>
+						</select></td>
+						<td><input type="submit" value="Search" id="Submit_Button"
+							style="border: outset; border-width: 0px; margin-top:0;" onclick="searchCook();"></input>
+						</td>
+					</tr>
+				</table>
 		
-		<div class= "">	
-		<div class = "header-div">Looking for Cook?</div>
-			
-			<label class = "font-style header-div" style="margin-left : 25%">
-			<strong>Please select a Area</strong>
-			</label
-			<br>
-			<select id = "area_search"  class = "input-height user-name-input select-input" >
-			<option  disabled selected value> -- Choose Area --</option>
-			<option  value="ecity_phase_1">Electronic City Phase 1 </option>
-			<option  value="ecity_phase_2">Electronic City Phase 2	</option>
-			</select>
-			<input type="Submit" value ="Search Cook" class = "select-input" onClick="searchCook()"></input>
-		
-		</div>	
-		</nav>
-		
-		<div id ="results_section" style ="border: 2px transparent; margin-top:50px; }">
-		
-			<div id ="filters" style=" width: 20%; display: inline-block; margin-left: 60px; margin-top: 30px; float:left">
-				<label class ="font-style" style= "    padding-left: 45px;">Filter Area</label>
-				<ul style="list-style:none;">
-					<li><input type="checkbox"></input><label class = "font-style">E-City main</label></li>
-					<li><input type="checkbox"></input><label class ="font-style">E-City Phase 1</label></li>
-					<li><input type="checkbox"></input><label class ="font-style">E-City Phase 2</label></li>
-				
-				</ul>
-			</div>
-			<div id ="results" style= "display:inline-block;">
-			<ul id="results-ul"style = "list-style:none;" class="font-style">
-			</ul>
-			<!--	<ul style = "list-style:none; " class="font-style">
-					<li>
-						<img src="" alt="image_not_provided" style="width:100px; float:left;">
-						
-						<div style= "overflow:hidden; padding-left:80px;">
-						<div>Web App Cook 2</div>
-						<div>Fe-Male</div>
-						 <div>Speciality - South Indian</div>
-						 <input type="submit" value = "Contact Cook" class="select-input"> </input>
-						</div>
-					</li>
-					<br>
-					<li>
-						<img src="" alt="image_not_provided" style="width:100px; float:left;">
-						
-						<div style= "overflow:hidden; padding-left:80px;">
-						<label>Name : </label><label>Web App Cook 2</label>
-						<label>Gender : </label><label>Fe-Male</label>
-						 <label>Speciality - South Indian</label>
-						 <input type="submit" value = "Contact Cook" class="select-input"> </input>
-						</div>
-					</li>
-					<br>
-					<li>
-						<img src="" alt="image_not_provided" style="width:100px; float:left;">
-						
-						<div style= "overflow:hidden; padding-left:80px;">
-						<div>Web App Cook 2</div>
-						<div>Fe-Male</div>
-						 <div>Speciality - South Indian</div>
-						 <input type="submit" value = "Contact Cook" class="select-input"> </input>
-						</div>
-					
-					</li>
-				
-				</ul> -->
-			
-			
-			</div>
-		
-		<div>
+</div>	
 
 		
+<div id ="Search_Results">
+<table id="Cook_Data">
+	<tr>
+		<td><img id="Image" src="resources/images/Sample_Photo.jpg"></td>
+		<td id="Details">
+			<p>Name:Harish Chauhan</p>
+			<p>Speciality:North, South, Chinese</p>
+			<p>Charge:5000/month</p>			
+		</td>
+	<tr>					
+</table>
 		
+</div>		
 </body>
+</html>

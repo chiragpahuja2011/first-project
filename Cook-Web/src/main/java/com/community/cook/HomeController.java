@@ -26,6 +26,10 @@ public class HomeController {
 		System.out.println("Hi ");
 		return ("home.html");
 	}
+@RequestMapping(value = "/cookSearch", method = RequestMethod.GET)
+public String cookSearch(){
+return ("cookSearch.html");
+}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	@ResponseBody
