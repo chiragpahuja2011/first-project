@@ -5,7 +5,9 @@
 	font-size:1em;
 	background:#E5E5E5; 
 	font-family: 'Ubuntu Condensed';  
-	background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);   
+/*	background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);   */
+	background-image: radial-gradient(circle, rgba(255,255,255,0), #dae6ea); 
+
 }
 
 #head{
@@ -14,6 +16,10 @@
 	background:repeating-linear-gradient(black, gray 2px);     
 	border-radius:10px;
 /*	font-family:'Ubuntu Condensed', sans-serif; */ 	   
+}
+
+#Body{
+	margin-top:65px;
 }
 
  #homeButton{
@@ -118,7 +124,7 @@
 .submitButton{
 	cursor:pointer;
 	cursor:hand;
-	background-color:rgba(213,94,22,0.9);
+	background-color:rgba(239, 75, 75, 0.9);
 	height:40px;
 	width:120px;
 	margin-top:10px;
