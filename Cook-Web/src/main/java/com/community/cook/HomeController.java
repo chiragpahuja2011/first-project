@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -26,10 +26,28 @@ public class HomeController {
 		System.out.println("Hi ");
 		return ("home.html");
 	}
-@RequestMapping(value = "/cookSearch", method = RequestMethod.GET)
-public String cookSearch(){
-return ("cookSearch.html");
-}
+	
+	@RequestMapping(value = "/cook", method = RequestMethod.GET)
+	public String homePage() {		
+		System.out.println("Hi ");
+		return ("home.html");
+	}
+	
+	@RequestMapping(value = "/cookSearch", method = RequestMethod.GET)
+	public String cookSearch(){
+		return ("cookSearch.html");
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage(){
+		return ("login.html");
+	}
+
+	@RequestMapping(value = "/help", method = RequestMethod.GET)
+	public String helpPage(){
+		return ("help.html");
+	}
+
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	@ResponseBody
@@ -44,7 +62,7 @@ return ("cookSearch.html");
 		speciality.add("South");
 		user1.setSpeciality(speciality);
 		userInfos.add(user1);
-		
+
 		UserInformation user2 = new UserInformation();
 		user2.setFirstName("Harish");
 		user2.setLastName("Chauhan");
@@ -55,6 +73,6 @@ return ("cookSearch.html");
 
 	}
 
-	
+
 }
 
