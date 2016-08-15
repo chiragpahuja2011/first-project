@@ -10,30 +10,31 @@
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <link rel="stylesheet" href="style/Cook_Home_Tablet.css">
 <link rel="stylesheet" href="style/Cook_Home_Phone.css">
-<link rel="stylesheet" type="text/css"
-	href="http://fonts.googleapis.com/css?family=Tangerine">
+
+<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 </head>
 <body id="Universe">
 	<div>
 		<div id="Head">
-			<!--	<img id="Head_image" src="images/head_photo.png">            -->
 			<div id="Home_Button">
-				<a id="H_Link" href="_blank">Home</a>
+				<a class="H_Link" href="_blank">Home</a>
 			</div>
 
-			<p id="Title">FindCook.com</p>
+			<span id="Title">FindCook.com</span> 
 
-			<div id="Login_Button">
-				<a id="H_Link" href="_blank">Login</a>
+			<div style="float:right;margin-top:20px;">
+				<a class="H_Link Login_Button" href="_blank">Login</a>
+
+				<a class="H_Link Help_Button" href="_blank">Help</a>
 			</div>
-			<div id="Help_Button">
-				<a id="H_Link" href="_blank">Help</a>
-			</div>
-		</div>
+			<!--<div id="Help_Button">
+				<a class="H_Link" href="_blank">Help</a>
+			</div>  -->
+		</div> 
 		<div id="Body">
 			<div id="Body_Left">
-				<p id="Tag_Line">Find The Best Cook In Your Area!</p>
-				<p id="Location_Text">Select Your Location!</p>
+				<span id="Tag_Line">Find The Best Cook In Your Area!</span> <br>
+				<span id="Location_Text">Select Your Location!</span> <br>
 				<table id="Location">
 					<tr>
 						<th>State</th>
@@ -51,19 +52,19 @@
 								<option value="chennai">Chennai</option>
 								<option value="trivendrum">Trivendrum</option>
 						</select></td>
-						<td><input type="submit" value="Search" id="Submit_Button"
+						<td><input type="submit" value="Search" class="Submit_Button"
 							style="border: outset; border-width: 0px;margin-top:0;" onclick="searchCook();"></input>
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div id="Body_Right">
-				<p>
+				<span>
 					<strong>Are You A Cook?</strong><br>
 					<strong>Sign Up To Register!</strong>
-				</p>
-				<br> <input type="submit" value="Sign-Up" id="Submit_Button"
-					style="border: outset; border-width: 0px;margin-top:0;"></input>
+				</span>
+				<br><input type="submit" value="Sign-Up" class="Submit_Button"
+					style="border: outset; border-width: 0px;margin-top:30px;"></input>
 
 			</div>
 		</div>
