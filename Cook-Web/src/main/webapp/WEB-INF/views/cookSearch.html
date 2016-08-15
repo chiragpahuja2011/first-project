@@ -19,14 +19,14 @@ element.value = data.area;
 </script>
 
 </head>
-<body id="Universe" onload="testScript();">
-<header id="Head" >
-	<p id="Title">FIND COOK</p>
+<body id="universe" onload="testScript();">
+<header id="head" >
+	<span id="title">FIND COOK</span>
 </header>
 		
-<div id= "Search_Bar">	
-				<p id="Location_Text">Select Your Location!</p>
-				<table id="Location">
+<div id= "searchBar">	
+				<span id="locationText">Select Your Location!</span>
+				<table id="location">
 					<tr>
 						<th>State</th>
 						<td><select name="City">
@@ -39,7 +39,7 @@ element.value = data.area;
 								<option value="E-City Phase-2">Bangalore</option>
 								<option value="BTM">Chennai</option>
 						</select></td>
-						<td><input type="submit" value="Search" id="Submit_Button"
+						<td><input type="submit" value="Search" class="submitButton"
 							style="border: outset; border-width: 0px; margin-top:0;" onclick="searchCook();"></input>
 						</td>
 					</tr>
@@ -48,11 +48,11 @@ element.value = data.area;
 </div>	
 
 		
-<div id ="Search_Results">
-<table id="Cook_Data">
+<div id ="searchresults">
+<table id="cookData">
 	<tr>
-		<td><img id="Image" src="resources/images/Sample_Photo.jpg"></td>
-		<td id="Details">
+		<td><img id="cookImage" src="resources/images/Sample_Photo.jpg"></td>
+		<td id="details">
 			<p>Name:Harish Chauhan</p>
 			<p>Speciality:North, South, Chinese</p>
 			<p>Charge:5000/month</p>			
