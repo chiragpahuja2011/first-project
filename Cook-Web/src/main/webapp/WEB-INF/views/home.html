@@ -30,20 +30,17 @@
 				<span id="locationText">Select Your location!</span> <br>
 				<table id="location">
 					<tr>
-						<th>State</th>
-						<td><select name="state">
-								<option value="haryana">Haryana</option>
-								<option value="bangalore">Karnataka</option>
-								<option value="kerala">Kerala</option>
-								<option value="chennai">Tamil Nadu</option>
+						<th>City</th>
+						<td><select name="City">
+								<option value="Bangalore" selected>Bangalore</option>
 						</select></td>
 
-						<th>City</th>
-						<td><select name="city">
-								<option value="ambala">Ambala</option>
-								<option value="bangalore">Bangalore</option>
-								<option value="chennai">Chennai</option>
-								<option value="trivendrum">Trivendrum</option>
+						<th>Area</th>
+						<td><select name="Area", id ="area_search">
+								<option value="" selected="selected">Select An Area</option>
+								<option value="ecity_phase_1">E city phase-1</option>
+								<option value="ecity_phase_2">E-City Phase-2</option>
+								<option value="BTM">BTM</option>
 						</select></td>
 						<td><input type="submit" value="Search" class="submitButton"
 							style="border: outset; border-width: 0px;margin-top:0;" onclick="searchCook();"></input>
