@@ -20,7 +20,7 @@ public class SignupController {
 	/**
 	 * Create the Cook Account in Elastic Search
 	 * @param cookUser
-	 * @return
+	 * @return StatusResponse
 	 */
 	@RequestMapping(value ="/cook", method = RequestMethod.POST)
 	@ResponseBody
