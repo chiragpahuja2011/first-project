@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login </title>
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" />
 <link rel="stylesheet" href="resources/style/Login.css" />
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 </head>
@@ -14,16 +15,32 @@
 		<span id="title">FIND COOK</span>
 	</header>
 	<div>
-		<span>Login In With:</span> <br />
-		<input type="submit" value="Google" class="submitButton"
-					style="border: outset; border-width: 0px; margin-top: 0;"></input> <br />
-		<span>OR</span> <br />
-		<p>
-			User Name : <input type="text" name="username" value="Ex:abc@gmail.com" /> <br />
-			Password  : <input type="text" name="password" value="" />
-		</p>
-		<input type="submit" value="Login" class="submitButton"
-					style="border: outset; border-width: 0px; margin-top: 0;"></input>
+	<table id="loginArea" align="center">
+		<tr>
+			<td>Login In With:</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="Google" class="submitButton"
+					style="border: outset; border-width: 0px; margin-top: 0;width:100%;"></input>
+			</td>
+		</tr>
+		<tr>
+			<td><br/>OR<br /></td> 
+		</tr>
+		<tr>
+			<td>
+				<p>User Name :</p> <input type="text" name="username" value="" placeholder="User name or Email" /> 
+				<p>Password  :</p><input type="text" name="password" value="" /> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="Login" class="submitButton"
+					style="border: outset; border-width: 0px; margin-top: 0;width:100%;"></input>
+			</td>
+		</tr>
+	</table>
 	</div>
 
 </body>
