@@ -23,3 +23,8 @@ function loadScript(){
 	console.log(data.area);
 	element.value = data.area;
 }
+
+function signUp(){
+	window.location.href = "signUp"
+}
+

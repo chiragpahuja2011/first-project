@@ -29,7 +29,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/cook", method = RequestMethod.GET)
 	public String homePage() {		
-		System.out.println("Hi ");
 		return ("home.html");
 	}
 	
@@ -46,6 +45,11 @@ public class HomeController {
 	@RequestMapping(value = "/help", method = RequestMethod.GET)
 	public String helpPage(){
 		return ("help.html");
+	}
+	
+	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public String signUp(){
+		return ("signUp.html");
 	}
 
 	
