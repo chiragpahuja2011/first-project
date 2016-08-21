@@ -2,9 +2,80 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sign up </title>
+<title>Login </title>
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" />
+<link rel="stylesheet" href="resources/style/Login.css" />
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
 </head>
-<body>
-THis is the signup page 
+<body id="universe" onload="loadScript();">
+	<header id="head">
+		<div id="homeButton">
+		<a class="hLink" href="./">Home</a>
+		</div>
+		<span id="title">FIND COOK</span>
+	</header>
+	<div>
+	<table id="signupArea" align="center">
+		<tr>
+			<td>Welcome! Fill in the details to join us.</td>
+		</tr>
+
+		<tr>
+			<td>
+				<p>Name :</p> 
+				<input type="text" name="fisrtname" value="" placeholder="First name" /> 
+				<input type="text" name="lastname" value="" placeholder="Last name" /> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>User Name:</p>
+				<input type="text" name="username" value="" placeholder="Ex:hariya99" />  				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Email:</p>
+				<input type="text" name="email" value="" placeholder="Ex:abc@gmail.com" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Password:</p>
+				<input type="text" name="password" value="" content="hidden" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Age:</p>
+				<input type="text" name="age" value="" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Mobile Number:</p>
+				<input type="text" name="mobileno" value="" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Work Area:</p>
+				<input type="text" name="workarea" value="" placeholder="Area where you'd be available for work" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Charge/Month:</p>
+				<input type="text" name="salary" value="" placeholder="how much would you charge?" /> 				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="Sign-Up" class="submitButton"
+					style="border: outset; border-width: 0px; margin-top: 0;width:100%;"></input>
+			</td>
+		</tr>
+	</table>
+	</div>
 </body>
 </html>
