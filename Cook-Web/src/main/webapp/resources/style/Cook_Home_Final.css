@@ -108,19 +108,7 @@
 	margin-bottom:0;
 }
 
-#bodyRight input{
-	border-radius:3px;
-	padding:3px;           
-	border:inset;	
-	border-width:2px;
-	border-left-color:rgba(0, 153, 153, 0.8);  
 
-	
-	
-}
-#bodyRight input:hover{
-	box-shadow:0.5px 0.5px black;
-}
 .submitButton{
 	cursor:pointer;
 	cursor:hand;
@@ -134,7 +122,15 @@
 }
 
 .submitSignup {
+	border-radius:3px;
+	padding:3px;
 	border: outset;
 	border-width: 0px;
 	margin-top:30px;
+	border-left-color:rgba(0, 153, 153, 0.8);  
 }
+
+.submitSignup:hover{
+	box-shadow:0.5px 0.5px black;
+}
+
