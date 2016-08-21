@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" />
-<link rel="stylesheet" href="resources/style/Login.css" />
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" >
+<link rel="stylesheet" href="resources/style/Signup.css" >
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 </head>
 <body id="universe" onload="loadScript();">
@@ -17,70 +17,69 @@
 	<div>
 		<table id="signupArea" align="center">
 			<tr>
-				<td>Welcome! Fill in the details to join us.</td>
+				<td><h1 id="mainHeading">Welcome! Fill in the details to join us.</h1></td>
 			</tr>
 
 			<tr>
 				<td>
-					<p>Name :</p> <input type="text" name="fisrtname" value=""
-					placeholder="First name" /> <input type="text" name="lastname"
-					value="" placeholder="Last name" />
+					<h3 class="nameHead">Name :</h3> 
+						<input class="boxes" type="text" name="fisrtname" value="" placeholder="First name" required> 
+						<input class="boxes" type="text" name="lastname" value="" placeholder="Last name" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>User Name:</p> <input type="text" name="username" value=""
-					placeholder="Ex:hariya99" />
+					<h3 class="nameHead">User Name:</h3> <input class="boxes" type="text" name="username" value=""
+					placeholder="Ex:hariya99" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Email:</p> <input type="text" name="email" value=""
-					placeholder="Ex:abc@gmail.com" />
+					<h3 class="nameHead">Email:</h3> <input class="boxes" type="email" name="email" value=""
+					placeholder="Ex:abc@gmail.com">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Password:</p> <input type="text" name="password" value=""
-					content="hidden" />
+					<h3 class="nameHead">Password:</h3> <input class="boxes" type="password" name="password" value=""
+					content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Confirm Password:</p> <input type="text" name="password"
-					value="" content="hidden" />
+					<h3 class="nameHead">Confirm Password:</h3> <input class="boxes" type="password" name="password"
+					value="" content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Age:</p> <input type="text" name="age" value="" />
+					<h3 class="nameHead">Age:</h3> <input class="boxes" type="number" name="age" value="">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Gender</p> 
+					<h3 class="nameHead">Gender</h3> 
 					 <input type="radio" value="true" name="gender">Male</input>
-       				 <input type="radio" value="false" name="gender">Female</input>
+       				 	 <input type="radio" value="false" name="gender">Female</input>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Mobile Number:</p> <input type="text" name="mobileno" value="" />
+					<h3 class="nameHead">Mobile Number:</h3> <input class="boxes" type="text" maxlength= "10" 							name="mobileno" value="" maxlength="10" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Speciality</p> <select multiple>
-						<option value="north_indian">North Indian</option>
-						<option value="south_indian">South Indian</option>
-						<option value="Eastern_UP">Eastern UP</option>
-						<option value="Punjabi">Punjabi</option>
-				</select>
+					<h3 class="nameHead">Speciality</h3> 
+						<input type="checkbox" name="speciality[]" value="north_indian" >North Indian 
+						<input type="checkbox" name="speciality[]" value="south_indian" >South Indian 
+						<input type="checkbox" name="speciality[]" value="eastern_up" >Eastern UP 
+						<input type="checkbox" name="speciality[]" value="punjabi" >Punjabi 
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p>Work Area:</p> <select multiple>
+					<h3 class="nameHead">Work Area:</h3> <select multiple>
 						<option value="e_city_phase_1">E-City Phase 1</option>
 						<option value="e_city_phase_2">E-City Phase 2</option>
 						<option value="BTM">BTM</option>
@@ -90,13 +89,13 @@
 			</tr>
 			<tr>
 				<td>
-					<p>Charge/Month:</p> <input type="text" name="salary" value=""
-					placeholder="how much would you charge?" />
+					<h3 class="nameHead">Charge/Month:</h3> 
+						<input class="boxes" type="number" name="salary" value="" placeholder="how much would you charge?">
 				</td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Sign-Up" class="submitButton"
-					style="border: outset; border-width: 0px; margin-top: 0; width: 100%;"></input>
+				<td><input type="submit" value="Sign-Up" class="submitButton submitSignup"
+					style="margin-top:10px; width: 40%;"></input>
 				</td>
 			</tr>
 		</table>
