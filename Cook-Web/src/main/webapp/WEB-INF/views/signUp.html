@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" href="resources/style/Cook_Home_Final.css" >
-<link rel="stylesheet" href="resources/style/Signup.css" >
+<script type="text/javascript" src="resources/js/cookSearch.js"></script>
+<link rel="stylesheet" href="resources/style/Login.css" />
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 </head>
-<body id="universe" onload="loadScript();">
+<body id="universe">
 	<header id="head">
 		<div id="homeButton">
 			<a class="hLink" href="./">Home</a>
@@ -19,41 +20,40 @@
 			<tr>
 				<td><h1 id="mainHeading">Welcome! Fill in the details to join us.</h1></td>
 			</tr>
-
 			<tr>
 				<td>
 					<h3 class="nameHead">Name :</h3> 
-						<input class="boxes" type="text" name="fisrtname" value="" placeholder="First name" required> 
-						<input class="boxes" type="text" name="lastname" value="" placeholder="Last name" required>
+						<input class="boxes" type="text" name="firstName"  id = "firstName" value="" placeholder="First name" required> 
+						<input class="boxes" type="text" name="lastName" id ="lastName" value="" placeholder="Last name" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">User Name:</h3> <input class="boxes" type="text" name="username" value=""
+					<h3 class="nameHead">User Name:</h3> <input class="boxes" type="text" name="userName" id="userName" value=""
 					placeholder="Ex:hariya99" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Email:</h3> <input class="boxes" type="email" name="email" value=""
+					<h3 class="nameHead">Email:</h3> <input class="boxes" type="email" name="email" id = "userEmail" value=""
 					placeholder="Ex:abc@gmail.com">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Password:</h3> <input class="boxes" type="password" name="password" value=""
+					<h3 class="nameHead">Password:</h3> <input class="boxes" type="password" name="password" id ="userPassword" value=""
 					content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Confirm Password:</h3> <input class="boxes" type="password" name="password"
+					<h3 class="nameHead">Confirm Password:</h3> <input class="boxes" type="password" name="password" id="confirmPassword"
 					value="" content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Age:</h3> <input class="boxes" type="number" name="age" value="">
+					<h3 class="nameHead">Age:</h3> <input class="boxes" type="number" name="age"  id= "userAge" value="">
 				</td>
 			</tr>
 			<tr>
@@ -65,7 +65,7 @@
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Mobile Number:</h3> <input class="boxes" type="text" maxlength= "10" 							name="mobileno" value="" maxlength="10" required>
+					<h3 class="nameHead">Mobile Number:</h3> <input class="boxes" type="text" maxlength= "10" id= "mobileNum" name="mobileno" value="" maxlength="10" required>
 				</td>
 			</tr>
 			<tr>
@@ -90,12 +90,12 @@
 			<tr>
 				<td>
 					<h3 class="nameHead">Charge/Month:</h3> 
-						<input class="boxes" type="number" name="salary" value="" placeholder="how much would you charge?">
+						<input class="boxes" type="number" name="salary" id="salary" value="" placeholder="how much would you charge?">
 				</td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Sign-Up" class="submitButton submitSignup"
-					style="margin-top:10px; width: 40%;"></input>
+					style="border: outset; border-width: 0px; margin-top: 0; width: 100%;" onclick ="submitSignUp()"></input>
 				</td>
 			</tr>
 		</table>
