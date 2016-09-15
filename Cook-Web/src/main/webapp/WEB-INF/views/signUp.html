@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" >
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css">
 <script type="text/javascript" src="resources/js/cookSearch.js"></script>
 <link rel="stylesheet" href="resources/style/Login.css" />
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
@@ -18,63 +18,67 @@
 	<div>
 		<table id="signupArea" align="center">
 			<tr>
-				<td><h1 id="mainHeading">Welcome! Fill in the details to join us.</h1></td>
+				<td><h1 id="mainHeading">Welcome! Fill in the details to
+						join us.</h1></td>
 			</tr>
+			<form action="javascript:submitSignUp()" id="register" role="form">
 			<tr>
 				<td>
-					<h3 class="nameHead">Name :</h3> 
-						<input class="boxes" type="text" name="firstName"  id = "firstName" value="" placeholder="First name" required> 
-						<input class="boxes" type="text" name="lastName" id ="lastName" value="" placeholder="Last name" required>
+					<h3 class="nameHead">Name :</h3> <input class="boxes" type="text"
+					name="firstName" id="firstName" value="" placeholder="First name"
+					required> <input class="boxes" type="text" name="lastName"
+					id="lastName" value="" placeholder="Last name" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">User Name:</h3> <input class="boxes" type="text" name="userName" id="userName" value=""
-					placeholder="Ex:hariya99" required>
+					<h3 class="nameHead">User Name/Email:</h3> <input class="boxes"
+					type="text" name="userName" id="userName" value=""
+					placeholder="Ex:abc@gmail.com" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Email:</h3> <input class="boxes" type="email" name="email" id = "userEmail" value=""
-					placeholder="Ex:abc@gmail.com">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h3 class="nameHead">Password:</h3> <input class="boxes" type="password" name="password" id ="userPassword" value=""
+					<h3 class="nameHead">Password:</h3> <input class="boxes"
+					type="password" name="password" id="userPassword" value=""
 					content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Confirm Password:</h3> <input class="boxes" type="password" name="password" id="confirmPassword"
-					value="" content="hidden" required>
+					<h3 class="nameHead">Confirm Password:</h3> <input class="boxes"
+					type="password" name="password" id="confirmPassword" value=""
+					content="hidden" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Age:</h3> <input class="boxes" type="number" name="age"  id= "userAge" value="">
+					<h3 class="nameHead">Age:</h3> <input class="boxes" type="number"
+					name="age" id="userAge" value="">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Gender</h3> 
-					 <input type="radio" value="true" name="gender">Male</input>
-       				 	 <input type="radio" value="false" name="gender">Female</input>
+					<h3 class="nameHead">Gender</h3> <input type="radio" value="true"
+					name="gender">Male</input> <input type="radio" value="false"
+					name="gender">Female</input>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Mobile Number:</h3> <input class="boxes" type="text" maxlength= "10" id= "mobileNum" name="mobileno" value="" maxlength="10" required>
+					<h3 class="nameHead">Mobile Number:</h3> <input class="boxes"
+					type="text" maxlength="10" id="mobileNumber" name="mobileNumber" value=""
+					maxlength="10" required>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Speciality</h3> 
-						<input type="checkbox" name="speciality[]" value="north_indian" >North Indian 
-						<input type="checkbox" name="speciality[]" value="south_indian" >South Indian 
-						<input type="checkbox" name="speciality[]" value="eastern_up" >Eastern UP 
-						<input type="checkbox" name="speciality[]" value="punjabi" >Punjabi 
+					<h3 class="nameHead">Speciality</h3> <input type="checkbox"
+					name="speciality[]" value="north_indian">North Indian <input
+					type="checkbox" name="speciality[]" value="south_indian">South
+					Indian <input type="checkbox" name="speciality[]"
+					value="eastern_up">Eastern UP <input type="checkbox"
+					name="speciality[]" value="punjabi">Punjabi
 				</td>
 			</tr>
 			<tr>
@@ -89,15 +93,17 @@
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Charge/Month:</h3> 
-						<input class="boxes" type="number" name="salary" id="salary" value="" placeholder="how much would you charge?">
+					<h3 class="nameHead">Charge/Month:</h3> <input class="boxes"
+					type="number" name="salary" id="salary" value=""
+					placeholder="how much would you charge?">
 				</td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Sign-Up" class="submitButton submitSignup"
-					style="border: outset; border-width: 0px; margin-top: 0; width: 100%;" onclick ="submitSignUp()"></input>
-				</td>
+				<td><input type="submit" value="Sign-Up"
+					class="submitButton submitSignup"
+					style="border: outset; border-width: 0px; margin-top: 0; width: 100%;" onsubmit="submitSignUp()"></input></td>
 			</tr>
+			</form>
 		</table>
 	</div>
 </body>

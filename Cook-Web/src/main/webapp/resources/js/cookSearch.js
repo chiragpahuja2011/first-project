@@ -28,15 +28,17 @@ function signUp(){
 	window.location.href = "signUp"
 }
 
+
 function submitSignUp(){
 	var user = {};
-	user.fistName = document.getElementById('firstName').value;
+	user.firstName = document.getElementById('firstName').value;
 	user.lastName = document.getElementById('lastName').value;
-	user.userName = document.getElementById('userName').value;
-	user.userEmail = document.getElementById('userEmail').value;
-	user.userPassword = document.getElementById('userPassword').value;
+	user.emailId = document.getElementById('userName').value;
+	user.password = document.getElementById('userPassword').value;
 	user.confirmPassword = document.getElementById('confirmPassword').value;
-	user.userAge = document.getElementById('userAge').value;
+	user.age = document.getElementById('userAge').value;
+	user.mobileNumber = document.getElementById('mobileNumber').value;
+	user.chargeMonthly = document.getElementById('salary').value;
 
 	var createUser = $.ajax({
 	      type: 'POST',
