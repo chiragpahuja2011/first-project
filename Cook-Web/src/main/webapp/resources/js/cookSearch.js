@@ -39,7 +39,19 @@ function submitSignUp(){
 	user.age = document.getElementById('userAge').value;
 	user.mobileNumber = document.getElementById('mobileNumber').value;
 	user.chargeMonthly = document.getElementById('salary').value;
-
+	user.gender = $("input[type='radio'][name='gender']:checked").val();
+	
+	// Get the specialiity
+	var checkboxValues = [];
+	$('input[name=speciality]:checked').map(function() {
+	            checkboxValues.push($(this).val());
+	});
+	user.speciality = checkboxValues;
+	
+	// Get the area selected 
+	var areaSelected = $("#workSelect").val();
+	user.workingArea = areaSelected;
+	
 	var createUser = $.ajax({
 	      type: 'POST',
 	      url: "cook",

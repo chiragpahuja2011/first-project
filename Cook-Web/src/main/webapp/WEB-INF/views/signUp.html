@@ -59,9 +59,9 @@
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Gender</h3> <input type="radio" value="true"
-					name="gender">Male</input> <input type="radio" value="false"
-					name="gender">Female</input>
+					<h3 class="nameHead">Gender</h3> 
+					<input type="radio" value="M" name="gender" required>Male</input> 
+					<input type="radio" value="F" name="gender">Female</input>
 				</td>
 			</tr>
 			<tr>
@@ -74,16 +74,16 @@
 			<tr>
 				<td>
 					<h3 class="nameHead">Speciality</h3> <input type="checkbox"
-					name="speciality[]" value="north_indian">North Indian <input
-					type="checkbox" name="speciality[]" value="south_indian">South
-					Indian <input type="checkbox" name="speciality[]"
+					name="speciality" value="north_indian" checked>North Indian <input
+					type="checkbox" name="speciality" value="south_indian" checked>South
+					Indian <input type="checkbox" name="speciality"
 					value="eastern_up">Eastern UP <input type="checkbox"
-					name="speciality[]" value="punjabi">Punjabi
+					name="speciality" value="punjabi">Punjabi
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Work Area:</h3> <select multiple>
+					<h3 class="nameHead">Work Area:</h3> <select multiple id="workSelect" >
 						<option value="e_city_phase_1">E-City Phase 1</option>
 						<option value="e_city_phase_2">E-City Phase 2</option>
 						<option value="BTM">BTM</option>
