@@ -27,6 +27,10 @@ function signUp(){
 	window.location.href = "signUp"
 }
 
+function login(){
+	window.location.href = "login"
+
+}
 
 function submitSignUp(){
 	var user = {};
@@ -128,4 +132,30 @@ function loadAreas(inoutArea){
 		}
 	});
 
+}
+
+function submitLogin(){
+	var user = {};
+	user.emailId = document.getElementById('userName').value;
+	user.password = document.getElementById('userPassword').value;
+	var loginUser = $.ajax({
+		type: 'POST',
+		url: "validate",
+		data:JSON.stringify(user),
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+		dataType: "json",
+		success: function(resultData) { 
+			console.log(resultData);
+			if(resultData && undefined != resultData.userInfo){
+				alert(" Login succcess");
+			}else{
+				alert('user Not present .. please try again');
+			}
+		}
+	});
+	loginUser.error(function() { alert("Something went wrong"); });
+	
 }

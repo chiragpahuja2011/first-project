@@ -20,6 +20,9 @@ import javax.persistence.Table;
 public class CookUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String EMAILID = "emailId";
+	public static final String PASSWORD = "password";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
