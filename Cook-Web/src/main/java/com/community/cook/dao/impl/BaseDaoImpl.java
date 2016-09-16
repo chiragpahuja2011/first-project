@@ -16,20 +16,23 @@ public class BaseDaoImpl  implements BaseDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	/*public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}*/
-	
 	public Session getSession(){
 		return this.sessionFactory.getCurrentSession();
 	}
 
 	@Override
 	public <T> List<T> getData(Class<T> type) {
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = getSession();
 		Criteria criteria = session.createCriteria(type);
 		List<T> returnList = criteria.list();
 		return returnList;
 	}
+	
+	@Override
+	public <T> void saveEntity(Object object){
+		Session session = getSession();
+		session.persist(object);
+	}
+
 	
 }
