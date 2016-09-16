@@ -1,6 +1,6 @@
 function searchCook(){
 
-	var e = document.getElementById("area_search");
+	var e = document.getElementById("areaSearch");
 	var areaSelected = e.options[e.selectedIndex].value;
 	if(areaSelected != undefined && "" != areaSelected){
 		window.location.href = "cookSearch.html?area="+areaSelected;
@@ -19,9 +19,8 @@ function loadScript(){
 		tmp = params[i].split('=');
 		data[tmp[0]] = tmp[1];
 	}
-	var element = document.getElementById('area_search');
-	console.log(data.area);
-	element.value = data.area;
+	loadAreas(data.area);
+
 }
 
 function signUp(){
@@ -40,28 +39,28 @@ function submitSignUp(){
 	user.mobileNumber = document.getElementById('mobileNumber').value;
 	user.chargeMonthly = document.getElementById('salary').value;
 	user.gender = $("input[type='radio'][name='gender']:checked").val();
-	
+
 	// Get the specialiity
 	var checkboxValues = [];
 	$('input[name=speciality]:checked').map(function() {
-	            checkboxValues.push($(this).val());
+		checkboxValues.push($(this).val());
 	});
 	user.speciality = checkboxValues;
-	
+
 	// Get the area selected 
 	var areaSelected = $("#workSelect").val();
 	user.workingArea = areaSelected;
-	
+
 	var createUser = $.ajax({
-	      type: 'POST',
-	      url: "cook",
-	      data:JSON.stringify(user),
-	      headers: { 
-        		'Accept': 'application/json',
-        		'Content-Type': 'application/json' 
-    	     },
-	      dataType: "json",
-	      success: function(resultData) { alert(" Server call success ful  Save Complete") }
+		type: 'POST',
+		url: "cook",
+		data:JSON.stringify(user),
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+		dataType: "json",
+		success: function(resultData) { alert(" Server call success ful  Save Complete") }
 	});
 	createUser.error(function() { alert("Something went wrong"); });
 	//user.userName = document.ge
@@ -69,33 +68,64 @@ function submitSignUp(){
 
 
 function loadData(){
-	console.log('Hi i was here');
 	var loadData = $.ajax({
-	      type: 'GET',
-	      url: "loadData",
-	      headers: { 
-      		'Accept': 'application/json',
-      		'Content-Type': 'application/json' 
-  	     },
-	      dataType: "json",
-	      success: function(resultData) {
-	    	  console.log('Call is success');
-	    	  if(undefined != resultData){
-	    		  var specData = resultData.specData;
-	    		  var areaData = resultData.areaData;
-	    		  $('#specData').html("");
-	    		  $('#workSelect').html("");
-	    		  var specInput = JSON.parse(specData);
-	    		  $.each(specInput, function() {	
-	    		        var html = '<input type="checkbox" name="speciality" value="'+this.spec_code+'">'+this.spec_desc+'</input>';
-	    		        $('#specData').append(html);
-	    		   });
-	    		  var areaInput = JSON.parse(areaData);
-	    		  $.each(areaInput, function() {	
-	    		        var html = '<option value='+this.area_code+'>'+this.area_desc+'</option>';
-	    		        $('#workSelect').append(html);
-	    		   });
-	    	  }
-	      }
+		type: 'GET',
+		url: "loadData",
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+		dataType: "json",
+		success: function(resultData) {
+			console.log('Call is success');
+			if(undefined != resultData){
+				var specData = resultData.specData;
+				var areaData = resultData.areaData;
+				$('#specData').html("");
+				$('#workSelect').html("");
+				var specInput = JSON.parse(specData);
+				$.each(specInput, function() {	
+					var html = '<input type="checkbox" name="speciality" value="'+this.spec_code+'">'+this.spec_desc+'</input>';
+					$('#specData').append(html);
+				});
+				var areaInput = JSON.parse(areaData);
+				$.each(areaInput, function() {	
+					var html = '<option value='+this.area_code+'>'+this.area_desc+'</option>';
+					$('#workSelect').append(html);
+				});
+			}
+		}
 	});
+}
+
+function loadAreas(inoutArea){
+	var loadData = $.ajax({
+		type: 'GET',
+		url: "loadData",
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+		dataType: "json",
+		success: function(resultData) {
+			console.log('Call is success');
+			if(undefined != resultData){
+				var specData = resultData.specData;
+				var areaData = resultData.areaData;
+				$('#areaSearch').html("");
+				$('#areaSearch').append('<option value="" selected="selected">Select An Area</option>')
+				var areaInput = JSON.parse(areaData);
+				$.each(areaInput, function() {	
+					var html = '<option value='+this.area_code+'>'+this.area_desc+'</option>';
+					$('#areaSearch').append(html);
+				});
+
+				if(undefined != inoutArea){
+					var element = document.getElementById('areaSearch');
+					element.value = inoutArea;
+				}
+			}
+		}
+	});
+
 }
