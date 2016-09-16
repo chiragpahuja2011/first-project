@@ -23,7 +23,7 @@ public class SignupController {
 	private SignUpService signUpService;
 	
 	/**
-	 * Create the Cook Account in Elastic Search
+	 * Create the Cook Account in MySql database
 	 * @param cookUser
 	 * @return StatusResponse
 	 */
@@ -34,6 +34,12 @@ public class SignupController {
 		return signUpService.createCookAccount(cookUser);
 	}
 	
+	
+	/**
+	 * This method returns the cook specialty and area's data to load the 
+	 * dropdowns for the signup page
+	 * @return node containing specialty and area data 
+	 */
 	@RequestMapping(value ="/loadData", method = RequestMethod.GET)
 	@ResponseBody
 	public ObjectNode loadStaticData(){

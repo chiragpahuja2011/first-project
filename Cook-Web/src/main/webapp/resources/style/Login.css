@@ -15,3 +15,11 @@
 	margin-top:5px;
 }
 
+
+.formLabel {
+	padding: 5px 5px 5px 0;
+}
+
+.formInput {
+	padding: 5px;
+}
