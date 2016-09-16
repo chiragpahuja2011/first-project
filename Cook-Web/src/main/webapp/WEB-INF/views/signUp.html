@@ -7,6 +7,13 @@
 <script type="text/javascript" src="resources/js/cookSearch.js"></script>
 <link rel="stylesheet" href="resources/style/Login.css" />
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	loadData();
+});
+
+</script>
+
 </head>
 <body id="universe">
 	<header id="head">
@@ -73,22 +80,14 @@
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Speciality</h3> <input type="checkbox"
-					name="speciality" value="north_indian" checked>North Indian <input
-					type="checkbox" name="speciality" value="south_indian" checked>South
-					Indian <input type="checkbox" name="speciality"
-					value="eastern_up">Eastern UP <input type="checkbox"
-					name="speciality" value="punjabi">Punjabi
+					<h3 class="nameHead">Speciality</h3> 
+					<div id="specData"></div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h3 class="nameHead">Work Area:</h3> <select multiple id="workSelect" >
-						<option value="e_city_phase_1">E-City Phase 1</option>
-						<option value="e_city_phase_2">E-City Phase 2</option>
-						<option value="BTM">BTM</option>
-						<option value="Kormangala">Kormangala</option>
-				</select>
+					<h3 class="nameHead">Work Area:</h3>
+					<select multiple id="workSelect"></select>
 				</td>
 			</tr>
 			<tr>

@@ -67,3 +67,35 @@ function submitSignUp(){
 	//user.userName = document.ge
 }
 
+
+function loadData(){
+	console.log('Hi i was here');
+	var loadData = $.ajax({
+	      type: 'GET',
+	      url: "loadData",
+	      headers: { 
+      		'Accept': 'application/json',
+      		'Content-Type': 'application/json' 
+  	     },
+	      dataType: "json",
+	      success: function(resultData) {
+	    	  console.log('Call is success');
+	    	  if(undefined != resultData){
+	    		  var specData = resultData.specData;
+	    		  var areaData = resultData.areaData;
+	    		  $('#specData').html("");
+	    		  $('#workSelect').html("");
+	    		  var specInput = JSON.parse(specData);
+	    		  $.each(specInput, function() {	
+	    		        var html = '<input type="checkbox" name="speciality" value="'+this.spec_code+'">'+this.spec_desc+'</input>';
+	    		        $('#specData').append(html);
+	    		   });
+	    		  var areaInput = JSON.parse(areaData);
+	    		  $.each(areaInput, function() {	
+	    		        var html = '<option value='+this.area_code+'>'+this.area_desc+'</option>';
+	    		        $('#workSelect').append(html);
+	    		   });
+	    	  }
+	      }
+	});
+}
