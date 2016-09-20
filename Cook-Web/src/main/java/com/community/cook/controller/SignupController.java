@@ -14,7 +14,8 @@ import com.community.cook.bean.StatusResponse;
 import com.community.cook.service.SignUpService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-@Controller(value = "signUp")
+@Controller
+@RequestMapping(value = "/cookSignup")
 public class SignupController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);

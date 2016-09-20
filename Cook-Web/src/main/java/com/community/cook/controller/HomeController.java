@@ -16,27 +16,27 @@ public class HomeController {
 		return ("home.html");
 	}
 	
-	@RequestMapping(value = "/cook", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homePage() {		
 		return ("home.html");
 	}
 	
-	@RequestMapping(value = "/cookSearch", method = RequestMethod.GET)
+	@RequestMapping(value = "/cook-search", method = RequestMethod.GET)
 	public String cookSearch(){
 		return ("cookSearch.html");
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/cook-login", method = RequestMethod.GET)
 	public String loginPage(){
 		return ("login.html");
 	}
 
-	@RequestMapping(value = "/help", method = RequestMethod.GET)
+	@RequestMapping(value = "/help-user", method = RequestMethod.GET)
 	public String helpPage(){
 		return ("help.html");
 	}
 	
-	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	@RequestMapping(value = "/cook-signup", method = RequestMethod.GET)
 	public String signUp(){
 		return ("signUp.html");
 	}

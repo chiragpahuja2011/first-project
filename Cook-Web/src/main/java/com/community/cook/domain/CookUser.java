@@ -23,6 +23,7 @@ public class CookUser implements Serializable {
 	
 	public static final String EMAILID = "emailId";
 	public static final String PASSWORD = "password";
+	public static final String COOKUSERAREAS ="cookUserAreas";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

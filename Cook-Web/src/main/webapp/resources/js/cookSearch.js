@@ -3,7 +3,7 @@ function searchCook(){
 	var e = document.getElementById("areaSearch");
 	var areaSelected = e.options[e.selectedIndex].value;
 	if(areaSelected != undefined && "" != areaSelected){
-		window.location.href = "cookSearch.html?area="+areaSelected;
+		window.location.href = "cook-search?area="+areaSelected;
 
 	} else{
 		alert('Please select an area');
@@ -24,11 +24,11 @@ function loadScript(){
 }
 
 function signUp(){
-	window.location.href = "signUp"
+	window.location.href = "cook-signup"
 }
 
 function login(){
-	window.location.href = "login"
+	window.location.href = "cook-login"
 
 }
 
@@ -57,7 +57,7 @@ function submitSignUp(){
 
 	var createUser = $.ajax({
 		type: 'POST',
-		url: "cook",
+		url: "cookSignup/cook",
 		data:JSON.stringify(user),
 		headers: { 
 			'Accept': 'application/json',
@@ -74,7 +74,7 @@ function submitSignUp(){
 function loadData(){
 	var loadData = $.ajax({
 		type: 'GET',
-		url: "loadData",
+		url: "cookSignup/loadData",
 		headers: { 
 			'Accept': 'application/json',
 			'Content-Type': 'application/json' 
@@ -105,7 +105,7 @@ function loadData(){
 function loadAreas(inoutArea){
 	var loadData = $.ajax({
 		type: 'GET',
-		url: "loadData",
+		url: "cookSignup/loadData",
 		headers: { 
 			'Accept': 'application/json',
 			'Content-Type': 'application/json' 
@@ -140,7 +140,7 @@ function submitLogin(){
 	user.password = document.getElementById('userPassword').value;
 	var loginUser = $.ajax({
 		type: 'POST',
-		url: "validate",
+		url: "login/validate",
 		data:JSON.stringify(user),
 		headers: { 
 			'Accept': 'application/json',

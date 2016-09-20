@@ -9,7 +9,7 @@ public class UserInformationResponse {
 	private String imageURL;
 	private List<String> speciality;
 	private List<String> workingArea;
-	private boolean gender;
+	private String gender;
 	private Long charges;
 	
 	public String getFirstName() {
@@ -52,11 +52,11 @@ public class UserInformationResponse {
 		this.workingArea = workingArea;
 	}
 
-	public boolean isGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

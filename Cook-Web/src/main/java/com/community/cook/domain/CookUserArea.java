@@ -2,7 +2,6 @@ package com.community.cook.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

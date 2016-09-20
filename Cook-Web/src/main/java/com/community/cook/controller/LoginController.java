@@ -11,7 +11,8 @@ import com.community.cook.bean.LoginRequest;
 import com.community.cook.service.LoginService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-@Controller(value = "login")
+@Controller
+@RequestMapping(value = "/login")
 public class LoginController {
 
 	@Autowired
@@ -27,7 +28,5 @@ public class LoginController {
 	public ObjectNode validateLogin(@RequestBody LoginRequest loginRequest){
 		return loginService.validateLogin(loginRequest);
 	}
-	
-	
 	
 }
