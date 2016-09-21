@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.dozer.Mapper;
 import org.hibernate.loader.collection.OneToManyJoinWalker;
 import org.slf4j.Logger;

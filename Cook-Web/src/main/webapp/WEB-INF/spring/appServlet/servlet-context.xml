@@ -68,8 +68,7 @@
 
 	<beans:bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<beans:property name="sessionFactory"
-			ref="sessionFactory" />
+		<beans:property name="sessionFactory" ref="sessionFactory" />
 	</beans:bean>
 
 
@@ -80,11 +79,23 @@
 	</beans:bean>
 
 	<beans:bean id="mapper" class="org.dozer.DozerBeanMapper">
+		<beans:property name="mappingFiles">
+			<beans:list>
+				<beans:value>dozer-mapping.xml</beans:value>
+			</beans:list>
+		</beans:property>
 	</beans:bean>
 	<context:component-scan base-package="com.community.cook" />
-	
+
 	<beans:bean id="jacksonMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
 	</beans:bean>
+
+	<!-- <beans:bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<beans:property name="location">
+			<beans:value>/WEB-INF/dozer-mapping.xml</beans:value>
+		</beans:property>
+	</beans:bean> -->
 
 
 </beans:beans>
