@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
@@ -21,11 +20,9 @@ import com.community.cook.bean.CookUserRequest;
 import com.community.cook.bean.StatusResponse;
 import com.community.cook.dao.CachingDao;
 import com.community.cook.dao.impl.UserDaoImpl;
-import com.community.cook.domain.Area;
 import com.community.cook.domain.CookUser;
 import com.community.cook.domain.CookUserArea;
 import com.community.cook.domain.CookUserSpeciality;
-import com.community.cook.domain.Speciality;
 import com.community.cook.service.SignUpService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -117,15 +114,13 @@ public class SignUpServiceImpl implements SignUpService {
 
 		if(MapUtils.isNotEmpty(specialities)){
 			List<ObjectNode> specNode = new ArrayList<ObjectNode>();
-
-			Iterator it = specialities.entrySet().iterator();
+ 			Iterator it = specialities.entrySet().iterator();
 			while (it.hasNext()) {
 				ObjectNode node = jacksonMapper.createObjectNode();
 				Map.Entry pair = (Map.Entry)it.next();
 				node.put("spec_code", (String)pair.getKey());
 				node.put("spec_desc", (String)pair.getValue());
 				specNode.add(node);
-				it.remove(); // avoids a ConcurrentModificationException
 			}
 			outoutNode.put("specData", specNode.toString());
 		}
@@ -140,7 +135,6 @@ public class SignUpServiceImpl implements SignUpService {
 				node.put("area_code", (String)pair.getKey());
 				node.put("area_desc", (String)pair.getValue());
 				areaNode.add(node);
-				it.remove(); // avoids a ConcurrentModificationException
 			}
 			outoutNode.put("areaData", areaNode.toString());
 		}
