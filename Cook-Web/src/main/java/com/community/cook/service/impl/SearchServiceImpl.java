@@ -2,6 +2,7 @@ package com.community.cook.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.dozer.DozerBeanMapper;
@@ -13,8 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.community.cook.bean.CookSearchRequest;
 import com.community.cook.bean.UserInformationResponse;
+import com.community.cook.dao.CachingDao;
 import com.community.cook.dao.SearchDao;
 import com.community.cook.domain.CookUser;
+import com.community.cook.domain.CookUserArea;
+import com.community.cook.domain.CookUserSpeciality;
 import com.community.cook.service.SearchService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -33,6 +37,9 @@ public class SearchServiceImpl implements SearchService {
 	
 	@Autowired
 	private DozerBeanMapper mapper;
+	
+	@Autowired
+	private CachingDao cachingDao;
 
 	/*
 	 * (non-Javadoc)
@@ -47,20 +54,39 @@ public class SearchServiceImpl implements SearchService {
 		if(CollectionUtils.isNotEmpty(cookUsers)){
 			LOGGER.info("Database Query Finished"+cookUsers.size());
 			List<UserInformationResponse> userResponse = new ArrayList<UserInformationResponse>();
+			Map<String, String> specData = cachingDao.getSpecialities();
+			Map<String, String> areaData = cachingDao.getAreas();
 			// Iterate Over Cook User Response and build the final Response
 			for(CookUser cookUser: cookUsers){
 				UserInformationResponse userInfoResponse = mapper.map(cookUser, UserInformationResponse.class);
 				
+				// Set the Speciality Data for the Cook
 				if(CollectionUtils.isNotEmpty(cookUser.getCookUserSpecialities())){
-					
+					List<String> specialites = new ArrayList<String>();
+
+					for(CookUserSpeciality cookUserSpeciality: cookUser.getCookUserSpecialities()){
+						specialites.add(specData.get(cookUserSpeciality.getSpecCode()));
+					}
+					userInfoResponse.setSpeciality(specialites);
+				}
+			
+				// Set the area Data for the cook
+				
+				if(CollectionUtils.isNotEmpty(cookUser.getCookUserAreas())){
+					List<String> areas = new ArrayList<String>();
+
+					for(CookUserArea cookUserArea: cookUser.getCookUserAreas()){
+						areas.add(areaData.get(cookUserArea.getAreaCode()));
+					}
+					userInfoResponse.setWorkingArea(areas);
 				}
 				
 				userResponse.add(userInfoResponse);
 			}
-			
-			
+			responseNode.put("size", userResponse.size());
+			responseNode.put("searchResponse", jacksonMapper.valueToTree(userResponse));
 		}
-		return null;
+		return responseNode;
 	}
 
 }

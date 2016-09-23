@@ -3,7 +3,7 @@ package com.community.cook.bean;
 import java.util.List;
 
 public class CookSearchRequest {
-	
+	 
 	private List<String> areas;
 
 	public List<String> getAreas() {

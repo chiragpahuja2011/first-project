@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.dozer.Mapper;
-import org.hibernate.loader.collection.OneToManyJoinWalker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.community.cook.bean.CookUserRequest;
 import com.community.cook.bean.StatusResponse;
+import com.community.cook.dao.CachingDao;
 import com.community.cook.dao.impl.UserDaoImpl;
 import com.community.cook.domain.Area;
 import com.community.cook.domain.CookUser;
@@ -25,7 +27,6 @@ import com.community.cook.domain.CookUserArea;
 import com.community.cook.domain.CookUserSpeciality;
 import com.community.cook.domain.Speciality;
 import com.community.cook.service.SignUpService;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -43,6 +44,9 @@ public class SignUpServiceImpl implements SignUpService {
 
 	@Autowired
 	private ObjectMapper jacksonMapper;
+
+	@Autowired
+	private CachingDao cachingDao;
 
 	/******************************************************
 	 * Private Methods
@@ -106,29 +110,37 @@ public class SignUpServiceImpl implements SignUpService {
 	@Override
 	@Transactional
 	public ObjectNode loadStaticData() {
+		LOGGER.info("Fetching Static Data");
 		ObjectNode outoutNode = jacksonMapper.createObjectNode();
-		List<Speciality> specialities = userDao.getData(Speciality.class);
+		Map<String, String> specialities = cachingDao.getSpecialities();
+		Map<String, String> areas = cachingDao.getAreas();
 
-		if(CollectionUtils.isNotEmpty(specialities)){
+		if(MapUtils.isNotEmpty(specialities)){
 			List<ObjectNode> specNode = new ArrayList<ObjectNode>();
-			for(Speciality input: specialities){
+
+			Iterator it = specialities.entrySet().iterator();
+			while (it.hasNext()) {
 				ObjectNode node = jacksonMapper.createObjectNode();
-				node.put("spec_code", input.getSpecCode());
-				node.put("spec_desc", input.getSpecDesc());
+				Map.Entry pair = (Map.Entry)it.next();
+				node.put("spec_code", (String)pair.getKey());
+				node.put("spec_desc", (String)pair.getValue());
 				specNode.add(node);
+				it.remove(); // avoids a ConcurrentModificationException
 			}
 			outoutNode.put("specData", specNode.toString());
 		}
 
-		List<Area> areas = userDao.getData(Area.class);
 
-		if(CollectionUtils.isNotEmpty(areas)){
+		if(MapUtils.isNotEmpty(areas)){
 			List<ObjectNode> areaNode = new ArrayList<ObjectNode>();
-			for(Area input: areas){
+			Iterator it = areas.entrySet().iterator();
+			while (it.hasNext()) {
 				ObjectNode node = jacksonMapper.createObjectNode();
-				node.put("area_code", input.getAreaCode());
-				node.put("area_desc", input.getAreaDesc());
+				Map.Entry pair = (Map.Entry)it.next();
+				node.put("area_code", (String)pair.getKey());
+				node.put("area_desc", (String)pair.getValue());
 				areaNode.add(node);
+				it.remove(); // avoids a ConcurrentModificationException
 			}
 			outoutNode.put("areaData", areaNode.toString());
 		}
