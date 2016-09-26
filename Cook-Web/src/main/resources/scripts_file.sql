@@ -36,3 +36,6 @@ insert into c_area(area_code,area_Desc, area_comment, created_by, created_date, 
 insert into c_area(area_code,area_Desc, area_comment, created_by, created_date, modified_by, modified_date) values('BTM','BTM', 'BTM Area', 1, now(), 1, now());
 
 insert into c_area(area_code,area_Desc, area_comment, created_by, created_date, modified_by, modified_date) values('Kormangala','Kormangala', 'Kormangala', 1, now(), 1, now());
+
+alter table c_user add column image_name varchar(250);
+alter table c_user add column image_content blob;

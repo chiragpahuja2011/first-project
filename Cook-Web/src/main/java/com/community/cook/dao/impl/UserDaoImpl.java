@@ -22,5 +22,12 @@ public class UserDaoImpl extends BaseDaoImpl  implements UserDao{
 		criteria.add(Restrictions.eq(CookUser.PASSWORD,password));
 		return (CookUser)criteria.uniqueResult();
 	}
+
+	@Override
+	public CookUser getUserById(long userId) {
+		Criteria criteria = getSession().createCriteria(CookUser.class);
+		criteria.add(Restrictions.eq(CookUser.USERID, userId));
+		return (CookUser)criteria.uniqueResult();
+	}
 	
 }

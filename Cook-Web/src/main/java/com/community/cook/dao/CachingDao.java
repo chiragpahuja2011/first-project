@@ -1,10 +1,6 @@
 package com.community.cook.dao;
 
-import java.util.List;
 import java.util.Map;
-
-import com.community.cook.domain.Area;
-import com.community.cook.domain.Speciality;
 
 public interface CachingDao {
 

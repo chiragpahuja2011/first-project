@@ -12,11 +12,13 @@ public class CookUserRequest {
 	private long mobileNumber;
 	private long chargeMonthly;
 	private String gender;
+	private List<String> speciality;
+	private List<String> workingArea;
+	private byte[] imageData;
+	
 	// Not joined Parameters
 	// TODO : Join them later
 	private String imageURL;
-	private List<String> speciality;
-	private List<String> workingArea;
 	private String dob;
 
 	public String getFirstName() {
@@ -27,13 +29,9 @@ public class CookUserRequest {
 		return chargeMonthly;
 	}
 
-
-
 	public void setChargeMonthly(long chargeMonthly) {
 		this.chargeMonthly = chargeMonthly;
 	}
-
-
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -88,7 +86,6 @@ public class CookUserRequest {
 		this.workingArea = workingArea;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
@@ -119,6 +116,14 @@ public class CookUserRequest {
 
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+
+	public byte[] getImageData() {
+		return imageData;
+	}
+
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
 	}
 
 }

@@ -21,6 +21,7 @@ public class CookUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	public static final String USERID = "userId";
 	public static final String EMAILID = "emailId";
 	public static final String PASSWORD = "password";
 	public static final String COOKUSERAREAS ="cookUserAreas";
@@ -56,6 +57,12 @@ public class CookUser implements Serializable {
 
 	@Column(name ="is_cook")
 	private String isCook;
+	
+	@Column(name ="image_name")
+	private String imageName;
+	
+	@Column(name ="image_content")
+	private byte[] imageContent;
 
 	@Column(name = "created_by")
 	private Integer createdBy;
@@ -209,6 +216,22 @@ public class CookUser implements Serializable {
 
 	public void setCookUserSpecialities(Set<CookUserSpeciality> cookUserSpecialities) {
 		this.cookUserSpecialities = cookUserSpecialities;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public byte[] getImageContent() {
+		return imageContent;
+	}
+
+	public void setImageContent(byte[] imageContent) {
+		this.imageContent = imageContent;
 	}
 
 	@Override

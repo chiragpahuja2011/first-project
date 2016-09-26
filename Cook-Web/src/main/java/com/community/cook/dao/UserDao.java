@@ -8,4 +8,6 @@ public interface UserDao {
 	
 	CookUser getUser(String emailId, String password);
 	
+	CookUser getUserById(long userId);
+	
 }
