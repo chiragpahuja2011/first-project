@@ -90,12 +90,7 @@
 	<beans:bean id="jacksonMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
 	</beans:bean>
 
-	<!-- <beans:bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<beans:property name="location">
-			<beans:value>/WEB-INF/dozer-mapping.xml</beans:value>
-		</beans:property>
-	</beans:bean> -->
+  <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 
 </beans:beans>
