@@ -27,6 +27,11 @@ function signUp(){
 	window.location.href = "cook-signup"
 }
 
+function uploadImage(){
+	window.location.href = "cook-upload"
+}
+
+
 function login(){
 	window.location.href = "cook-login"
 
@@ -157,5 +162,41 @@ function submitLogin(){
 		}
 	});
 	loginUser.error(function() { alert("Something went wrong"); });
-	
+
+}
+
+function uploadFormData(){
+	var oMyForm = new FormData();
+	oMyForm.append("file", imageFile.files[0]);
+
+	var uploadImage = $.ajax({
+		url: 'fileUpload/image',
+		data: oMyForm,
+		dataType: 'text',
+		processData: false,
+		contentType: false,
+		type: 'POST',
+		success: function(data){
+			alert("image uploaded successfully");
+		}
+	});
+	uploadImage.error(function() { alert("image upload failure"); });
+
+}
+
+function getImage(){
+
+	var uploadImage = $.ajax({
+		url: 'fileUpload/image/2',
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+		type: 'GET',
+		success: function(data){
+			document.getElementById("ItemPreview").src = "data:image/png;base64," + data.imageData;
+		}
+	});
+	uploadImage.error(function() { alert("image upload failure"); });
+
 }

@@ -41,5 +41,9 @@ public class HomeController {
 		return ("signUp.html");
 	}
 	
+	@RequestMapping(value = "/cook-upload", method = RequestMethod.GET)
+	public String uploadImage(){
+		return ("profileUpload.html");
+	}
+	
 }
-
