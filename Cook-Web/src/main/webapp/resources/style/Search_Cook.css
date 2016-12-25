@@ -109,4 +109,13 @@
 	width:20%;
 }
 
+button {
+	cursor:pointer;
+	cursor:hand;
+	background-color:rgba(239, 75, 75, 0.9);
+	color:white;
+	border-radius:3px;
+	font-family: 'Ubuntu Condensed', sans-serif;	
+}
+
 /*  }   */
