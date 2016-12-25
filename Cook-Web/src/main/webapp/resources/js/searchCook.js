@@ -96,8 +96,9 @@ function cookSearchData(responseText){
 		newTd1.appendChild(para);
 
 	i = i+1;
+        dataObject = dataFromServer[i];
+	console.log("hi");
         if (i < dataFromServer.length) {
-
 		para = document.createElement("p");
 		para.innerHTML = "Name: " + dataObject.firstName + " " + dataObject.lastName;
 		newTd3.appendChild(para);
