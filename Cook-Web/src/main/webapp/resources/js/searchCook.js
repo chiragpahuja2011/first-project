@@ -118,8 +118,8 @@ function cookSearchData(responseText){
                 newTd3.appendChild(para);
 
 		para = document.createElement("button"); 
-		para.innerHTML = "Visit Full Profile"
-		newTd1.appendChild(para);
+		para.innerHTML = "Visit Full Profile";
+		newTd3.appendChild(para);
 		
 		i = i+1;  
 	}    
