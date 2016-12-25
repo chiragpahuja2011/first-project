@@ -96,7 +96,7 @@ function cookSearchData(responseText){
 		newTd1.appendChild(para);
 
 		para = document.createElement("button"); 
-		para.innerHTML = "Visit Full Profile"
+		para.innerHTML = "Visit Full Profile";
 		newTd1.appendChild(para);
 
 
