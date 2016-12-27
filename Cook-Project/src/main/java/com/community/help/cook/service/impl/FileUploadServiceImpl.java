@@ -46,12 +46,8 @@ public class FileUploadServiceImpl implements FileUploadService {
 				CookUser cookUser = userDao.getUserById(2l);
 				// TODO: Handle Exception
 				cookUser.setImageContent(mpf.getBytes());
-
 			}
-
 		}
-
-
 		return null;
 	}
 
