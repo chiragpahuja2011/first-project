@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.community.cook.bean.LoginRequest;
-import com.community.cook.bean.StatusResponse;
-import com.community.cook.controller.LoginController;
 import com.community.cook.dao.impl.UserDaoImpl;
 import com.community.cook.domain.CookUser;
 import com.community.cook.service.LoginService;

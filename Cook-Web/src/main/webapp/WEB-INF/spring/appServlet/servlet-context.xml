@@ -35,7 +35,7 @@
 		</beans:property>
 	</beans:bean>
 
-	<!-- Databse Connection Changes -->
+	<!-- Database Connection Changes -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

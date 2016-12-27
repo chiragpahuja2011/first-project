@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cook-Home</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" />
+<script type="text/javascript" src="resources/js/cookSearch.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		loadAreas(undefined);
+	});
+</script>
+
+
+</head>
+<body id="universe">
+	<div>
+		<div id="head">
+			<div id="homeButton">
+				<a class="hLink" href="./">Home</a>
+			</div>
+
+			<span id="title">FindCook.com</span> 
+
+			<div style="float:right;margin-top:20px;">
+				<a class="hLink loginButton" onclick="login();">Login</a>
+				<a class="hLink Help_Button" href="help-user">Help</a>
+			</div>
+		</div> 
+		<div id="Body">
+			<div id="bodyLeft">
+				<span id="tagLine">Find The Best Cook In Your Area!</span> <br>
+				<span id="locationText">Select Your location!</span> <br>
+				<table id="location">
+					<tr>
+						<th>City</th>
+						<td><select name="City">
+								<option value="Bangalore" selected>Bangalore</option>
+						</select></td>
+
+						<th>Area</th>
+						<td>
+						<select name="Area", id ="areaSearch">
+						</select>
+						</td>
+						<td><input type="submit" value="Search" class="submitButton"
+							style="border: outset; border-width: 0px;margin-top:0;" onclick="searchCook();"></input>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="bodyRight">
+				<span>
+					<strong>Are You A Cook?</strong><br>
+					<strong>Sign Up To Register!</strong>
+				</span>
+				<br><input type="submit" value="Sign-Up" class="submitButton submitSignup"
+					 onclick="signUp();"></input>
+					 <input type="submit"  class="submitButton submitSignup"
+					 onclick="uploadImage();"></input>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

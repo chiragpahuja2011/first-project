@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="resources/style/Cook_Home_Final.css">
+<script type="text/javascript" src="resources/js/cookSearch.js"></script>
+<link rel="stylesheet" href="resources/style/Login.css" />
+<link rel="stylesheet" href="resources/style/Signup.css" />
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		loadData();
+	});
+</script>
+
+</head>
+<body id="universe">
+	<header id="head">
+		<div id="homeButton">
+			<a class="hLink" href="./">Home</a>
+		</div>
+		<span id="title">FIND COOK</span>
+	</header>
+	<div id="signupArea">
+			<h1 id="mainHeading" style="text-align:center;">Welcome! Fill in the details to join us.</h1>
+			
+			<form action="javascript:submitSignUp()" id="register" role="form" style="margin-left:40%">
+
+				<div class="nameHead formLabel">Name :</div>
+				<input class="boxes formInput" type="text" name="firstName" id="firstName" value="" placeholder="First name" required> 
+				<input 	class="boxes formInput" type="text" name="lastName" id="lastName" value="" placeholder="Last name" required>
+				
+				<div class="nameHead formLabel">User Name/Email:</div>
+				<input class="boxes formInput" type="text" name="userName" id="userName" value="" placeholder="Ex:abc@gmail.com" required>
+				
+				<div class="nameHead formLabel">Password:</div>
+				<input class="boxes formInput" type="password" name="password" id="userPassword" value="" content="hidden" required>
+				
+				<div class="nameHead formLabel">Confirm Password:</div>
+				<input class="boxes formInput" type="password" name="password" id="confirmPassword" value="" content="hidden" required>
+				
+				<div class="nameHead formLabel">Age:</div>
+				<input class="boxes formInput" type="number"	name="age" id="userAge" value="">
+					
+				<div class="nameHead formLabel">Gender</div> 
+				<input type="radio" value="M" name="gender" required>Male
+				<input type="radio" value="F" name="gender">Female
+					
+				<div class="nameHead formLabel">Mobile Number:</div>  
+				<input class="boxes formInput" type="text" maxlength="10" id="mobileNumber" name="mobileNumber" value="" maxlength="10" required>
+			
+				<div class="nameHead formLabel">Speciality</div>
+				<div id="specData"></div>
+
+				<div class="nameHead formLabel">Work Area:</div> 
+				<select multiple id="workSelect"></select>
+
+				<div class="nameHead formLabel">Charge/Month:</div> 
+				<input class="boxes" type="number" name="salary" id="salary" value="" placeholder="how much would you charge?">
+				<div>
+				<input type="submit" value="Sign-Up" class="submitButton submitSignup" style="border:outset; border-width:0px; margin-top: 10px; font-size:1.5em;"
+					onsubmit="submitSignUp()"></input>
+				</div>
+			</form>
+		</table>
+	</div>
+</body>
+</html>

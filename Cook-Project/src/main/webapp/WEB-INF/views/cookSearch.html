@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cook Search</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="resources/style/Search_Cook.css"></link>
+<script type="text/javascript" src="resources/js/cookSearch.js"></script>   
+<script type="text/javascript" src="resources/js/searchCook.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+</head>
+<body id="universe" onload="loadScript();cookSearchRequest();">
+	<header id="head">
+		<div id="homeButton">
+		<a class="hLink" href="./">Home</a>
+		</div>
+		<span id="title">FIND COOK</span>
+	</header>
+
+	<div id="searchBar">
+		<span id="locationText">Select Your Location!</span>
+		<table id="location" align="center">
+			<tr>
+				<th>City</th>
+				<td><select name="City">
+						<option value="Bangalore" selected>Bangalore</option>
+				</select></td>
+
+				<th>Area</th>
+				<td><select name="Area" , id="areaSearch">
+				</select></td>
+				<td><input type="submit" value="Search" class="submitButton"
+					style="border: outset; border-width: 0px; margin-top: 0;"
+					onclick="searchCook();"></input></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+	<div id="searchResults">
+		<table id="cookData">
+<!-- data populated by javascript goes here !-->
+		</table>
+
+	</div>
+</body>
+</html>
