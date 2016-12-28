@@ -43,7 +43,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 			MultipartFile mpf = request.getFile(itr.next());
 
 			if(null != mpf){
-				CookUser cookUser = userDao.getUserById(2l);
+				CookUser cookUser = userDao.findByUserId(2l);
 				// TODO: Handle Exception
 				cookUser.setImageContent(mpf.getBytes());
 			}
@@ -54,7 +54,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 	@Override
 	@Transactional(readOnly= true)
 	public ObjectNode getImageData(HttpServletResponse response, long userId) {
-		CookUser cookUser = userDao.getUserById(userId);
+		CookUser cookUser = userDao.findByUserId(userId);
 		ObjectNode responseNode= jacksonMapper.createObjectNode();
 		responseNode.put("imageData", cookUser.getImageContent());
 		return responseNode;

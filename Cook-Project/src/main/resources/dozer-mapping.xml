@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<mapping>
+		<class-a>com.community.help.cook.domain.CookUser</class-a>
+		<class-b>com.community.help.cook.bean.UserInformationResponse</class-b>
+		<field>
+			<a>chargeMonthly</a>
+			<b>charges</b>
+		</field>
+	</mapping>
+</mappings>
+

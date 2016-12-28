@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.community.help.cook.bean.LoginRequest;
-import com.community.help.cook.dao.impl.UserDaoImpl;
+import com.community.help.cook.dao.UserDao;
 import com.community.help.cook.domain.CookUser;
 import com.community.help.cook.service.LoginService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,16 +20,16 @@ public class LoginServiceImpl implements LoginService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
 
 	@Autowired
-	private UserDaoImpl userDao;
-
-	@Autowired
 	private ObjectMapper jacksonMapper;
 
+	@Autowired
+	private UserDao userDao;
+	
 	@Override
 	@Transactional
 	public ObjectNode validateLogin(LoginRequest loginRequest) {
 		if(validateUserName(loginRequest)){
-			CookUser cookUser =	userDao.getUser(loginRequest.getEmailId(), loginRequest.getPassword());
+			CookUser cookUser =	userDao.findByEmailIdAndPassword(loginRequest.getEmailId(), loginRequest.getPassword());
 			ObjectNode responseNode = jacksonMapper.createObjectNode();
 			if(null != cookUser){
 				LOGGER.info("User iS present ");

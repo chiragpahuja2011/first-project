@@ -1,13 +1,23 @@
 package com.community.help.cook.dao;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.community.help.cook.domain.CookUser;
 
-public interface UserDao {
+public interface UserDao extends CrudRepository<CookUser, Long> {
 	
-	void addUser(CookUser cookUser);
+	/**
+	 * Get User information using email id and password
+	 * @param emailId
+	 * @param password
+	 * @return
+	 */
+	CookUser findByEmailIdAndPassword(String emailId, String password);
 	
-	CookUser getUser(String emailId, String password);
-	
-	CookUser getUserById(long userId);
-	
+	/**
+	 * Find User by User Id
+	 * @param userId
+	 * @return
+	 */
+	CookUser findByUserId(Long userId);
 }

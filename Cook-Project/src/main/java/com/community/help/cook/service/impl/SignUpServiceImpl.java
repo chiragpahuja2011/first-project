@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.collections.MapUtils;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.community.help.cook.bean.CookUserRequest;
 import com.community.help.cook.bean.StatusResponse;
-import com.community.help.cook.dao.CachingDao;
-import com.community.help.cook.dao.impl.UserDaoImpl;
+import com.community.help.cook.dao.UserDao;
 import com.community.help.cook.domain.CookUser;
 import com.community.help.cook.domain.CookUserArea;
 import com.community.help.cook.domain.CookUserSpeciality;
+import com.community.help.cook.service.CachingService;
 import com.community.help.cook.service.SignUpService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -37,14 +37,66 @@ public class SignUpServiceImpl implements SignUpService {
 	private  Mapper mapper;
 
 	@Autowired
-	private UserDaoImpl userDao;
-
-	@Autowired
 	private ObjectMapper jacksonMapper;
 
 	@Autowired
-	private CachingDao cachingDao;
+	private CachingService cachingService;
+	
+	@Autowired
+	private UserDao userDao;
 
+
+	@Transactional(readOnly = false)
+	@Override
+	public StatusResponse createCookAccount(CookUserRequest cookUser) {
+		// validate the CookUserRequest 
+		//TODO : Add the code for the validation
+		CookUser cookUserDomain = getCookUser(cookUser);
+		userDao.save(cookUserDomain);
+		StatusResponse status = new StatusResponse();
+		status.setStatusCode("200");
+		status.setStatusMsg("Cook Account Got Created");
+		return status;
+	}
+
+	@Override
+	@Transactional
+	public ObjectNode loadStaticData() {
+		LOGGER.info("Fetching Static Data");
+		ObjectNode outoutNode = jacksonMapper.createObjectNode();
+		Map<String, String> specialities = cachingService.getSpecialities();
+		Map<String, String> areas = cachingService.getAreas();
+
+		if(MapUtils.isNotEmpty(specialities)){
+			List<ObjectNode> specNode = new ArrayList<ObjectNode>();
+ 			Iterator it = specialities.entrySet().iterator();
+			while (it.hasNext()) {
+				ObjectNode node = jacksonMapper.createObjectNode();
+				Map.Entry pair = (Map.Entry)it.next();
+				node.put("spec_code", (String)pair.getKey());
+				node.put("spec_desc", (String)pair.getValue());
+				specNode.add(node);
+			}
+			outoutNode.put("specData", specNode.toString());
+		}
+
+
+		if(MapUtils.isNotEmpty(areas)){
+			List<ObjectNode> areaNode = new ArrayList<ObjectNode>();
+			Iterator it = areas.entrySet().iterator();
+			while (it.hasNext()) {
+				ObjectNode node = jacksonMapper.createObjectNode();
+				Map.Entry pair = (Map.Entry)it.next();
+				node.put("area_code", (String)pair.getKey());
+				node.put("area_desc", (String)pair.getValue());
+				areaNode.add(node);
+			}
+			outoutNode.put("areaData", areaNode.toString());
+		}
+		return outoutNode;
+	}
+	
+	
 	/******************************************************
 	 * Private Methods
 	 ******************************************************/
@@ -89,56 +141,6 @@ public class SignUpServiceImpl implements SignUpService {
 		}
 		cookUserDomain.setCookUserAreas(cookUserAreas);
 		return cookUserDomain;
-	}
-
-	@Transactional(readOnly = false)
-	@Override
-	public StatusResponse createCookAccount(CookUserRequest cookUser) {
-		// validate the CookUserRequest 
-		//TODO : Add the code for the validation
-		CookUser cookUserDomain = getCookUser(cookUser);
-		userDao.addUser(cookUserDomain);
-		StatusResponse status = new StatusResponse();
-		status.setStatusCode("200");
-		status.setStatusMsg("Cook Account Got Created");
-		return status;
-	}
-
-	@Override
-	@Transactional
-	public ObjectNode loadStaticData() {
-		LOGGER.info("Fetching Static Data");
-		ObjectNode outoutNode = jacksonMapper.createObjectNode();
-		Map<String, String> specialities = cachingDao.getSpecialities();
-		Map<String, String> areas = cachingDao.getAreas();
-
-		if(MapUtils.isNotEmpty(specialities)){
-			List<ObjectNode> specNode = new ArrayList<ObjectNode>();
- 			Iterator it = specialities.entrySet().iterator();
-			while (it.hasNext()) {
-				ObjectNode node = jacksonMapper.createObjectNode();
-				Map.Entry pair = (Map.Entry)it.next();
-				node.put("spec_code", (String)pair.getKey());
-				node.put("spec_desc", (String)pair.getValue());
-				specNode.add(node);
-			}
-			outoutNode.put("specData", specNode.toString());
-		}
-
-
-		if(MapUtils.isNotEmpty(areas)){
-			List<ObjectNode> areaNode = new ArrayList<ObjectNode>();
-			Iterator it = areas.entrySet().iterator();
-			while (it.hasNext()) {
-				ObjectNode node = jacksonMapper.createObjectNode();
-				Map.Entry pair = (Map.Entry)it.next();
-				node.put("area_code", (String)pair.getKey());
-				node.put("area_desc", (String)pair.getValue());
-				areaNode.add(node);
-			}
-			outoutNode.put("areaData", areaNode.toString());
-		}
-		return outoutNode;
 	}
 
 }

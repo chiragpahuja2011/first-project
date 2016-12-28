@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.community.help.cook.bean.CookSearchRequest;
 import com.community.help.cook.bean.UserInformationResponse;
-import com.community.help.cook.dao.CachingDao;
 import com.community.help.cook.dao.SearchDao;
 import com.community.help.cook.domain.CookUser;
 import com.community.help.cook.domain.CookUserArea;
 import com.community.help.cook.domain.CookUserSpeciality;
+import com.community.help.cook.service.CachingService;
 import com.community.help.cook.service.SearchService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -39,7 +39,7 @@ public class SearchServiceImpl implements SearchService {
 	private DozerBeanMapper mapper;
 	
 	@Autowired
-	private CachingDao cachingDao;
+	private CachingService cachingService;
 
 	/*
 	 * (non-Javadoc)
@@ -49,13 +49,13 @@ public class SearchServiceImpl implements SearchService {
 	@Transactional(readOnly = true)
 	public ObjectNode fetchCookResults(CookSearchRequest cookSearchRequest) {
 		ObjectNode responseNode = jacksonMapper.createObjectNode();
-		List<CookUser> cookUsers = searchDao.getCookResults(cookSearchRequest.getAreas());
+		List<CookUser> cookUsers = searchDao.getCookDataByCookUserAreas(cookSearchRequest.getAreas());
 		LOGGER.info("Database Query Finishs");
 		if(CollectionUtils.isNotEmpty(cookUsers)){
 			LOGGER.info("Database Query Finished"+cookUsers.size());
 			List<UserInformationResponse> userResponse = new ArrayList<UserInformationResponse>();
-			Map<String, String> specData = cachingDao.getSpecialities();
-			Map<String, String> areaData = cachingDao.getAreas();
+			Map<String, String> specData = cachingService.getSpecialities();
+			Map<String, String> areaData = cachingService.getAreas();
 			// Iterate Over Cook User Response and build the final Response
 			for(CookUser cookUser: cookUsers){
 				UserInformationResponse userInfoResponse = mapper.map(cookUser, UserInformationResponse.class);
