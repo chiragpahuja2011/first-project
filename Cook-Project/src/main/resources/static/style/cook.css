@@ -1,0 +1,61 @@
+body{
+	font-size:1.5em;
+}
+#cook-main{
+	font-family:calibri, sans-serif;
+	text-align:center;
+	color:#6666ff;
+	margin-bottom:0px;
+}
+#cook-main p img {
+	background-color:#ffffcc;
+	width:1em;
+	height:1em;
+}
+#cook-main img{
+	width:15em;
+	height:15em;
+}
+
+#button-cook{
+    background-color:#44c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+    border:1px solid #18ab29;
+	cursor:pointer;
+	font-size:20px;
+	float:left;
+	margin-top:450px;
+	margin-left:350px;
+}
+#button-cook:hover{
+	background-color:#5cbf2a;
+}
+#button-cook:active{
+	position:relative;
+	top:1px;
+}
+
+#button-seeker{
+    background-color:#44c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+    border:1px solid #18ab29;
+	cursor:pointer;
+	font-size:20px;
+	float:right;
+	margin-top:450px;
+	margin-right:350px;
+	border
+}
+
+#button-seeker:hover{
+	background-color:#5cbf2a;
+}
+#button-seeker:active{
+	position:relative;
+	top:1px;
+}
+

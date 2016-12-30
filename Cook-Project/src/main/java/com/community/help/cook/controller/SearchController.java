@@ -25,7 +25,7 @@ public class SearchController {
 	 * @param cookSearchRequest
 	 * @return
 	 */
-	@RequestMapping(value = "/", method=RequestMethod.POST)
+	@RequestMapping(value = "/cook", method=RequestMethod.POST)
 	@ResponseBody
 	public ObjectNode fetchCookResults(@RequestBody CookSearchRequest cookSearchRequest){
 		return searchService.fetchCookResults(cookSearchRequest);

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Cook-Home</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="resources/style/Cook_Home_Final.css" />
-<script type="text/javascript" src="resources/js/cookSearch.js"></script>
-<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<meta charset="utf-8"></meta>
+<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}"/>
+<script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"  th:src="@{js/jquery.min.js}"></script>
+
 <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
 
 <script type="text/javascript">
@@ -32,13 +33,13 @@
 		</div> 
 		<div id="Body">
 			<div id="bodyLeft">
-				<span id="tagLine">Find The Best Cook In Your Area!</span> <br>
-				<span id="locationText">Select Your location!</span> <br>
+				<span id="tagLine">Find The Best Cook kIn Your Area! daffdsfadd</span> <br/>
+				<span id="locationText">Select Your location!</span> <br/>
 				<table id="location">
 					<tr>
 						<th>City</th>
 						<td><select name="City">
-								<option value="Bangalore" selected>Bangalore</option>
+								<option value="Bangalore" selected="selected">Bangalore</option>
 						</select></td>
 
 						<th>Area</th>
@@ -54,10 +55,10 @@
 			</div>
 			<div id="bodyRight">
 				<span>
-					<strong>Are You A Cook?</strong><br>
+					<strong>Are You A Cook?</strong><br />
 					<strong>Sign Up To Register!</strong>
 				</span>
-				<br><input type="submit" value="Sign-Up" class="submitButton submitSignup"
+				<br /><input type="submit" value="Sign-Up" class="submitButton submitSignup"
 					 onclick="signUp();"></input>
 					 <input type="submit"  class="submitButton submitSignup"
 					 onclick="uploadImage();"></input>

@@ -1,0 +1,140 @@
+/*@media (min-width:1166px){          */
+#Universe{
+	color:white;
+/*	font-family:candara, calibri, sans-serif;              */
+    font-family:'MidietSansMedium',"Trebuchet MS",Arial,Tahoma,sans-serif;
+	font-size:1em;
+/*	background-image:url("../images/Cover-edit.png");          
+	background-size:cover;                */
+/*	text-shadow:0.4px 0.4px #ffffcc;                   */
+/* good color	background-color:rgba(0, 153, 115,0.8);        */
+ /*   background-color:rgba(61,224,153,1);      */
+    background-image:radial-gradient(ellipse at 50%, #F0FFA3, rgb(20,120,150)70%);
+}
+
+#Head{
+	height:70px;
+	border-bottom: solid 3px gray;             
+	border-color: rgba(179, 179, 255,0.5);	
+/*	background-color:rgb(204, 255, 255);      */
+    background-color:#3d3d3e;
+	border-radius:20px;
+}
+ #Home_Button{
+	float:left;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+/*#Head_image{
+	height:70px;
+	width:100%;
+	position:absolute;
+	z-index:-1;
+}                     */
+
+#Title{
+	float:left;
+	margin-left:500px;
+	font-family:candara, helvetica, Comic Sans MS,sans-serif;
+	font-size:1.5em;
+	color:white;
+	text-shadow:-1px 0.4px green;
+	margin-top:20px;
+	
+}
+
+#Login_Button{
+	float:right;
+	margin-right:20px; 
+	margin-top:20px;
+}
+
+#Help_Button{
+	float:right;
+	margin-right:30px;
+	margin-top:20px;
+}
+
+
+#H_Link{
+/* 	color:rgba(0, 153, 153, 0.8);     */
+	color:white;
+	font-size:1.5em;
+	text-decoration:none;
+	font-family:calibri;
+}
+
+
+#Body_Left{
+	float:left;
+	margin-top:10px;
+	margin-left:30px;
+	width:600px;
+	font-size:2.5em;
+	text-align:center;
+
+}
+
+#Location_Text{
+	text-align:left;
+	margin-left:150px;
+	font-size:0.8em;
+	margin-bottom:0;
+}
+#Location{
+	margin-left:150px;
+	font-size:0.6em;     /*this font size is relative to body left because it is a child of body left. it will be helpful when we make it responsive*/	
+}
+
+#Location select:hover{
+	box-shadow:0.5px 0.5px black;
+}
+
+#Location select{
+	padding:3px;
+	border:outset;
+	border-width:2px;
+	border-radius:5px;
+	border-left-color:rgba(0, 153, 153, 0.8);
+}
+
+#Body_Right{
+	float:right;
+	margin:40px 100px 0px 10px;
+	width:400px;
+	font-size:1.5em;
+	text-align:left;
+}
+
+#Body_Right p{
+	margin-bottom:0;
+}
+
+#Body_Right input{
+	border-radius:3px;
+	padding:3px;           
+	border:inset;	
+	border-width:2px;
+	border-left-color:rgba(0, 153, 153, 0.8);
+/*	background-color:rgba(0, 153, 204, 0.2);             */    
+
+	
+	
+}
+#Body_Right input:hover{
+	box-shadow:0.5px 0.5px black;
+}
+#Submit_Button{
+	cursor:pointer;
+	cursor:hand;
+	background-color:rgba(213,94,22,0.9);
+	height:40px;
+	width:120px;
+	margin-top:10px;
+	color:white;
+	font-family:calibri,sans-serif;
+	font-size:1em;
+}
+
+/*  }             */

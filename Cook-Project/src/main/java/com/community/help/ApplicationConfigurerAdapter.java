@@ -7,10 +7,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class ApplicationConfigurerAdapter extends WebMvcConfigurerAdapter {
-
+/*
 	@Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
@@ -22,5 +22,5 @@ public class ApplicationConfigurerAdapter extends WebMvcConfigurerAdapter {
 		resolver.setPrefix("WEB-INF/views/");
 		resolver.setSuffix(".html");
 		return resolver;
-	}
+	}*/
 }
