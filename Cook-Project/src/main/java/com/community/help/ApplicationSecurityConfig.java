@@ -13,7 +13,7 @@ import com.community.help.cook.service.impl.CustomAuthenticationProvider;
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
-
+	
 	@Autowired
 	private CustomAuthenticationProvider loginSerice;
 	
@@ -24,10 +24,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		.authorizeRequests()
 		.antMatchers("/","/home","/style/**","/js/**","/images/**","/cook-signup","/cook-upload","/cookSignup/loadData","/help-user","/cook-search").permitAll()
 		.antMatchers(HttpMethod.POST,"/search/cook").permitAll()
+		.antMatchers("/cook-profile").hasAuthority(CustomAuthenticationProvider.COOK_USER_ROLE)
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/cook-login").permitAll()
+		.successForwardUrl("/cook-profile")
 		.and()
 		.logout()
 		.permitAll();

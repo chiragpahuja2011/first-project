@@ -42,5 +42,10 @@ public class HomeController {
 	public ModelAndView uploadImage(){
 		return new ModelAndView("profileUpload");
 	}
+	
+	@RequestMapping(value = "/cook-profile", method = RequestMethod.GET)
+	public ModelAndView cookProfile(){
+		return new ModelAndView("cookProfile");
+	}
 
 }
