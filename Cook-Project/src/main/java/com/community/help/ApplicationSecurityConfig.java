@@ -29,7 +29,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin()
 		.loginPage("/cook-login").permitAll()
-		.successForwardUrl("/cook-profile")
+		.defaultSuccessUrl("/cook-profile")
 		.and()
 		.logout()
 		.permitAll();

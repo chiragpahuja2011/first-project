@@ -13,13 +13,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
+	
+	public static final String COOK_USER_ROLE = "COOK_USER";
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		if(authentication.getName().equals("admin")  && authentication.getCredentials().equals("admin")) {
 	        List<GrantedAuthority> grantedAuths = new ArrayList<>();
-	        grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-	        grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+	        grantedAuths.add(new SimpleGrantedAuthority(COOK_USER_ROLE));
 	        return new UsernamePasswordAuthenticationToken(authentication.getName(), authentication.getCredentials(), grantedAuths);
 	    } else {
 	        return null;
