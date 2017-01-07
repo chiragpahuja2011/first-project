@@ -3,48 +3,65 @@
 <head>
 <title>Cook Search</title>
 <meta charset="utf-8"></meta>
-<link rel="stylesheet" href="../static/style/Search_Cook.css" th:href="@{style/Search_Cook.css}"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
+<link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="../static/style/Search_Cook.css" th:href="@{style/Search_Cook.css}"/>
+<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}" />
+
+<script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
-<script type="text/javascript" src="../static/js/jquery.min.js"  th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/js/searchCook.js"  th:src="@{js/searchCook.js}"></script>
 </head>
 
-<body id="universe" onload="loadScript();cookSearchRequest();">
-	<header id="head">
-		<div id="homeButton">
-		<a class="hLink" href="./">Home</a>
+<body onload="loadScript();cookSearchRequest();">
+
+	<!-- Static Top Nav bar using bootstrap -->
+	<nav class="navbar navbar-inverse navbar-fixed-top header-gradient">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="./">FIND COOK</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="./">Home</a></li>
+					<li><a onclick="login();">Login</a></li>
+					<li><a href="help-user">Help</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
-		<span id="title">FIND COOK</span>
-	</header>
-
-	<div id="searchBar">
-		<span id="locationText">Select Your Location!</span>
+	</nav>
+	
+	<div class="container">
+		<div class="starter-template">
+			<p class="lead">Select Your location!</p>
+			<label>City</label>
+				<select name="City">
+					<option value="Bangalore" selected="selected">Bangalore</option>
+				</select>
+			<label>Area</label>
+			<select name="Area" id ="areaSearch"></select>
+			<input type="submit" value="Search" class="btn-primary"
+						onclick="searchCook();"></input>
 		
-		<table id="location" align="center">
-			<tr>
-				<th>City</th>
-				<td><select name="City">
-						<option value="Bangalore" selected="selected">Bangalore</option>
-				</select></td>
-
-				<th>Area</th>
-				<td><select name="Area" id="areaSearch">
-				</select></td>
-				<td><input type="submit" value="Search" class="submitButton"
-					style="border: outset; border-width: 0px; margin-top: 0;"
-					onclick="searchCook();"></input></td>
-			</tr>
-		</table>
-
-	</div>
-
-
+		</div>
 	<div id="searchResults">
 		<table id="cookData">
 	<!-- data populated by javascript goes here !-->
 		</table>
 
 	</div>
+	</div>
+	
 </body>
 </html>
