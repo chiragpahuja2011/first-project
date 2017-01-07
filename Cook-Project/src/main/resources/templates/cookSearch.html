@@ -18,29 +18,7 @@
 
 <body onload="loadScript();cookSearchRequest();">
 
-	<!-- Static Top Nav bar using bootstrap -->
-	<nav class="navbar navbar-inverse navbar-fixed-top header-gradient">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="./">FIND COOK</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="./">Home</a></li>
-					<li><a onclick="login();">Login</a></li>
-					<li><a href="help-user">Help</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</nav>
+   <div th:include="header"></div>
 	
 	<div class="container">
 		<div class="starter-template">

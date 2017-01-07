@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"></meta>
 <title>Login</title>
-<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<meta charset="UTF-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
+<link rel="stylesheet" href="../static/style/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}"/>
 <link rel="stylesheet" href="../static/style/Login.css" th:href="@{style/Login.css}"/>
 <link rel="stylesheet" href="../static/style/Signup.css" th:href="@{style/Signup.css}"/>
 
-<script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
-<script type="text/javascript" src="../static/js/jquery.min.js"  th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../static/js/cookSearch.js" th:src="@{js/cookSearch.js}"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		loadData();
 	});
 </script>
-
 </head>
-<body id="universe">
-	<header id="head">
-		<div id="homeButton">
-			<a class="hLink" href="./">Home</a>
-		</div>
-		<span id="title">FIND COOK</span>
-	</header>
+<body>
+	
+   <div th:include="header"></div>
+	
 	<div id="signupArea">
 			<h1 id="mainHeading" style="text-align:center;">Welcome! Fill in the details to join us.</h1>
 			

@@ -47,5 +47,11 @@ public class HomeController {
 	public ModelAndView cookProfile(){
 		return new ModelAndView("cookProfile");
 	}
+	
+	@RequestMapping(value = "/header", method = RequestMethod.GET)
+	public ModelAndView headerInclude(){
+		return new ModelAndView("header");
+	}
+
 
 }
