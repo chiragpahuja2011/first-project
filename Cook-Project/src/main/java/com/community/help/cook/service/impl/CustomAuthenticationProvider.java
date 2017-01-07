@@ -16,17 +16,12 @@ import org.springframework.stereotype.Component;
 
 import com.community.help.cook.dao.UserDao;
 import com.community.help.cook.domain.CookUser;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	public static final String COOK_USER_ROLE = "COOK_USER";
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
-
-	@Autowired
-	private ObjectMapper jacksonMapper;
 
 	@Autowired
 	private UserDao userDao;
@@ -38,7 +33,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		String password = (String)authentication.getCredentials();
 		if(validateUserName(username, password)){
 			CookUser cookUser =	userDao.findByEmailIdAndPassword(username, password);
-			ObjectNode responseNode = jacksonMapper.createObjectNode();
 			if(null != cookUser){
 				LOGGER.info("User iS present ");
 				List<GrantedAuthority> grantedAuths = new ArrayList<>();

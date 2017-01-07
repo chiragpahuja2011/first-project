@@ -69,7 +69,10 @@ function submitSignUp(){
 			'Content-Type': 'application/json' 
 		},
 		dataType: "json",
-		success: function(resultData) { alert(" Server call success ful  Save Complete") }
+		success: function(resultData) { 
+			alert(" User is created. Redirecting to Profile Page");
+			window.location.href="cook-profile";
+		}
 	});
 	createUser.error(function() { alert("Something went wrong"); });
 	//user.userName = document.ge
@@ -139,31 +142,6 @@ function loadAreas(inoutArea){
 
 }
 
-function submitLogin(){
-	var user = {};
-	user.emailId = document.getElementById('userName').value;
-	user.password = document.getElementById('userPassword').value;
-	var loginUser = $.ajax({
-		type: 'POST',
-		url: "login/validate",
-		data:JSON.stringify(user),
-		headers: { 
-			'Accept': 'application/json',
-			'Content-Type': 'application/json' 
-		},
-		dataType: "json",
-		success: function(resultData) { 
-			console.log(resultData);
-			if(resultData && undefined != resultData.userInfo){
-				alert(" Login succcess");
-			}else{
-				alert('user Not present .. please try again');
-			}
-		}
-	});
-	loginUser.error(function() { alert("Something went wrong"); });
-
-}
 
 function uploadFormData(){
 	var oMyForm = new FormData();

@@ -8,11 +8,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.collections.MapUtils;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +30,8 @@ import com.community.help.cook.service.CachingService;
 import com.community.help.cook.service.SignUpService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
 public class SignUpServiceImpl implements SignUpService {
@@ -44,20 +50,48 @@ public class SignUpServiceImpl implements SignUpService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private CustomAuthenticationProvider authenticator;
 
 
 	@Transactional(readOnly = false)
 	@Override
-	public StatusResponse createCookAccount(CookUserRequest cookUser) {
+	public StatusResponse createCookAccount(CookUserRequest cookUser, HttpServletRequest request) {
 		// validate the CookUserRequest 
 		//TODO : Add the code for the validation
 		CookUser cookUserDomain = getCookUser(cookUser);
 		userDao.save(cookUserDomain);
+		doAutoLogin(cookUser.getEmailId(), cookUser.getPassword(), request);
 		StatusResponse status = new StatusResponse();
 		status.setStatusCode("200");
 		status.setStatusMsg("Cook Account Got Created");
 		return status;
 	}
+
+	/***************************************************
+	 * On Signup, create auth token for the user
+	 *************************************************/
+	private void doAutoLogin(String username, String password, HttpServletRequest request) {
+
+	    try {
+	        // Must be called from request filtered by Spring Security, otherwise SecurityContextHolder is not updated
+	        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+	        token.setDetails(new WebAuthenticationDetails(request));
+	        Authentication authentication = authenticator.authenticate(token);
+	        LOGGER.debug("Logging in with [{}]", authentication.getPrincipal());
+	        SecurityContextHolder.getContext().setAuthentication(authentication);
+	    } catch (Exception e) {
+	        SecurityContextHolder.getContext().setAuthentication(null);
+	        LOGGER.error("Failure in autoLogin", e);
+	    }
+
+	}
+	
+	
+	/*******************************************************
+	 * Static Data For application
+	 *******************************************************/
 
 	@Override
 	@Transactional

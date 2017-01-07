@@ -1,5 +1,7 @@
 package com.community.help.cook.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,9 @@ public class SignupController {
 	 */
 	@RequestMapping(value ="/cook", method = RequestMethod.POST)
 	@ResponseBody
-	public StatusResponse createCookAccount(@RequestBody CookUserRequest cookUser){
+	public StatusResponse createCookAccount(@RequestBody CookUserRequest cookUser, HttpServletRequest request){
 		LOGGER.info("Cook Creation is started. This is a test logger");
-		return signUpService.createCookAccount(cookUser);
+		return signUpService.createCookAccount(cookUser,request);
 	}
 	
 	
