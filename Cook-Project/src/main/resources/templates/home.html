@@ -3,68 +3,88 @@
 <head>
 <title>Cook-Home</title>
 <meta charset="utf-8"></meta>
-<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}"/>
-<script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
-<script type="text/javascript" src="../static/js/jquery.min.js"  th:src="@{js/jquery.min.js}"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
-<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+<link rel="stylesheet"
+	href="../static/style/bootstrap/css/bootstrap.min.css"
+	th:href="@{bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="../static/style/Cook_Home_Final.css"
+	th:href="@{style/Cook_Home_Final.css}" />
+
+<script type="text/javascript" src="../static/js/jquery.min.js"
+	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript"
+	src="../static/bootstrap/js/bootstrap.min.js"
+	th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../static/js/cookSearch.js"
+	th:src="@{js/cookSearch.js}"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed'
+	rel='stylesheet' type='text/css' />
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		loadAreas(undefined);
+		loadAreas();
 	});
 </script>
 
 
 </head>
-<body id="universe">
-	<div>
-		<div id="head">
-			<div id="homeButton">
-				<a class="hLink" href="./">Home</a>
-			</div>
+<body>
 
-			<span id="title">FindCook.com</span> 
-
-			<div style="float:right;margin-top:20px;">
-				<a class="hLink loginButton" onclick="login();">Login</a>
-				<a class="hLink Help_Button" href="help-user">Help</a>
+	<!-- Static Top Nav bar using bootstrap -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="./">FIND COOK</a>
 			</div>
-		</div> 
-		<div id="Body">
-			<div id="bodyLeft">
-				<span id="tagLine">Find The Best Cook In Your Area! </span> <br/>
-				<span id="locationText">Select Your location!</span> <br/>
-				<table id="location">
-					<tr>
-						<th>City</th>
-						<td><select name="City">
-								<option value="Bangalore" selected="selected">Bangalore</option>
-						</select></td>
-
-						<th>Area</th>
-						<td>
-						<select name="Area" id ="areaSearch">
-						</select>
-						</td>
-						<td><input type="submit" value="Search" class="submitButton"
-							style="border: outset; border-width: 0px;margin-top:0;" onclick="searchCook();"></input>
-						</td>
-					</tr>
-				</table>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="./">Home</a></li>
+					<li><a onclick="login();">Login</a></li>
+					<li><a href="help-user">Help</a></li>
+				</ul>
 			</div>
-			<div id="bodyRight">
-				<span>
-					<strong>Are You A Cook?</strong><br />
-					<strong>Sign Up To Register!</strong>
-				</span>
-				<br /><input type="submit" value="Sign-Up" class="submitButton submitSignup"
-					 onclick="signUp();"></input>
-					 <input type="submit"  class="submitButton submitSignup"
-					 onclick="uploadImage();"></input>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+	<div class="starter-template">
+		<div class="row">
+			<div class="col-md-5 col-xs-12">
+				<p class="lead">Find The Best Cook In Your Area! </p>
+				<p class="lead">Select Your location!</p> <br />
+				<label>City</label>
+				<select name="City">
+					<option value="Bangalore" selected="selected">Bangalore</option>
+				</select>
+			   <label>Area</label>
+				<select name="Area" id ="areaSearch"></select>
+				<input type="submit" value="Search" class="btn-primary"
+						onclick="searchCook();"></input>
+			</div>
+			<div class="col-md-5 col-xs-12">
+				<p class="lead">Are You A Cook?</p>
+				<p class="lead">Sign Up To Register!</p>
+				<input type="submit" value="Sign-Up"
+					class="btn-primary" onclick="signUp();"></input> 
+				<input
+					type="submit" class="btn-primary" value="Login"
+					onclick="uploadImage();"></input>
 
 			</div>
 		</div>
+		</div>
 	</div>
+
 </body>
 </html>
