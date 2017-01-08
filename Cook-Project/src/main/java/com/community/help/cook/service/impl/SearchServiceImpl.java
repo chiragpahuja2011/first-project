@@ -59,7 +59,10 @@ public class SearchServiceImpl implements SearchService {
 			// Iterate Over Cook User Response and build the final Response
 			for(CookUser cookUser: cookUsers){
 				UserInformationResponse userInfoResponse = mapper.map(cookUser, UserInformationResponse.class);
-				
+				// set user id manually for now
+				//TODO: add it to mapper later
+				userInfoResponse.setUserId(cookUser.getUserId());
+
 				// Set the Speciality Data for the Cook
 				if(CollectionUtils.isNotEmpty(cookUser.getCookUserSpecialities())){
 					List<String> specialites = new ArrayList<String>();

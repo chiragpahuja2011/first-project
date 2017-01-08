@@ -70,8 +70,6 @@ public class LoginServiceImpl implements LoginService, AuthenticationProvider {
 				LOGGER.info("User iS present ");
 				responseNode.put("userInfo", cookUser.toString());
 				
-
-				
 			}else{
 				LOGGER.info("User Not Present ");
                 throw new BadCredentialsException("User not found.");

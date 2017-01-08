@@ -11,6 +11,7 @@ public class UserInformationResponse {
 	private List<String> workingArea;
 	private String gender;
 	private Long charges;
+	private Long userId;
 	
 	public String getFirstName() {
 		return firstName;
@@ -66,6 +67,14 @@ public class UserInformationResponse {
 
 	public void setCharges(Long charges) {
 		this.charges = charges;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	
 }

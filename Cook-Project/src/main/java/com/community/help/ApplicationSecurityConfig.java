@@ -22,7 +22,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 		.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/","/home","/style/**","/bootstrap/**","/js/**","/images/**","/cook-signup","/cook-upload","/cookSignup/loadData","/cookSignup/cook","/help-user","/cook-search","/header").permitAll()
+		.antMatchers("/","/home","/style/**","/bootstrap/**","/js/**","/images/**","/cook-signup","/cook-upload","/cookSignup/loadData","/cookSignup/cook","/help-user","/cook-search","/header","/profile/cook/{\\d}").permitAll()
 		.antMatchers(HttpMethod.POST,"/search/cook").permitAll()
 		.antMatchers("/cook-profile").hasAuthority(CustomAuthenticationProvider.COOK_USER_ROLE)
 		.anyRequest().authenticated()
