@@ -69,12 +69,12 @@ body {
 
 .para-text {
 	margin: 10px;
-	font-size: 13px;
-    line-height: 18px;
+	font-size: 15px;
+    line-height: 22px;
 }
 
 .normal-text {
-	font-size: 13px;
+	font-size: 15px;
     line-height: 22px;
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 .search-template {
-	padding: 30px  15px 5px 15px;
+	padding: 15px  15px 5px 15px;
 	text-align: center;
 }
 

@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Please Login</title>
+<meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
 <link rel="stylesheet" href="../static/style/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}" />
+<link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}" />
 <link rel="stylesheet" href="../static/style/Login.css" th:href="@{style/Login.css}" />
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
@@ -16,22 +17,22 @@
 <body>
 	
 	<div th:include="header"></div>
-
-	<div id="loginArea" style="margin-left:auto; margin-right:auto; margin-top:70px; width:300px;"> 
-		<form name="f" th:action="@{/cook-login}" method="post" style="width:200px; height:200px">
-			<fieldset>
-				<legend>Please Login</legend>
-				<div th:if="${param.error}" class="alert alert-error">Invalid
+<div class="container font-body">
+		<form name="f" th:action="@{/cook-login}" method="post" class="form-signin">
+			   
+				<h2 class="form-signin-heading">Please sign in</h2>
+        		<div th:if="${param.error}" class="alert alert-error">Invalid
 					username and password.</div>
 				<div th:if="${param.logout}" class="alert alert-success">You
 					have been logged out.</div>
-				<label for="username">Username</label> <input type="text"
-					id="username" name="username" /> <label for="password">Password</label>
-				<input type="password" id="password" name="password" />
-				<div class="form-actions">
-					<button type="submit" class="btn-primary">Log in</button>
-				</div>
-			</fieldset>
+        		
+        		<label for="username" class="sr-only">Email address</label>
+        		<input type="text" id="username" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+        		</input>
+        		<label for="password" class="sr-only">Password</label>
+        		<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
+				</input>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		</form>
 	</div>
 </body>
