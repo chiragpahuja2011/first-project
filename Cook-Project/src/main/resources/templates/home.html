@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
 <link rel="stylesheet" href="../static/style/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}" />
+<link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}" />
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
@@ -27,28 +27,30 @@
 <body>
    <div th:include="header"></div>
 
-	<div class="container">
+	<div class="container font-body">
 	<div class="starter-template">
 		<div class="row">
-			<div class="col-md-5 col-xs-12">
-				<p class="lead">Find The Best Cook In Your Area! </p>
-				<p class="lead">Select Your location!</p>
-				<label>City</label>
-				<select name="City">
+			<div class="col-md-6 col-xs-12">
+				<p class="paraText">Find The Best Cook In Your Area! </p>
+				<p class="paraText">Select Your location!</p>
+				<label class="normalText">City</label>
+				<select name="City" class="normalText">
 					<option value="Bangalore" selected="selected">Bangalore</option>
 				</select>
-			   <label>Area</label>
-				<select name="Area" id ="areaSearch"></select>
-				<input type="submit" value="Search" class="btn-primary"
+				<br class="hide-inline-element"/>
+			   <label class="normalText">Area</label>
+				<select name="Area" id ="areaSearch" class="normalText"></select>
+				<input type="submit" value="Search" class="btn-primary buttonText"
 						onclick="searchCook();"></input>
 			</div>
-			<div class="col-md-5 col-xs-12">
-				<p class="lead">Are You A Cook?</p>
-				<p class="lead">Sign Up To Register!</p>
+			
+			<div class="col-md-6 col-xs-12">
+				<p class="paraText">Are You A Cook?</p>
+				<p class="paraText">Sign Up To Register!</p>
 				<input type="submit" value="Sign-Up"
-					class="btn-primary" onclick="signUp();"></input> 
+					class="btn-primary buttonText" onclick="signUp();"></input> 
 				<input
-					type="submit" class="btn-primary" value="Login"
+					type="submit" class="btn-primary buttonText" value="Login"
 					onclick="uploadImage();"></input>
 
 			</div>
