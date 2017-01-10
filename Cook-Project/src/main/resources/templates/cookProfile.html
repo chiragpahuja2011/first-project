@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"></meta>
-<title>Insert title here</title>
+<title>Cook Profile</title>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
+
+<!-- <link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}" />        -->
+
+<script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/jquery.tmpl.min.js" th:src="@{bootstrap/js/jquery.tmpl.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<script>
+$(function(){
+	
+	var url = document.location.href;
+	var parm = url.split('=');
+	var indx=id=0;
+		indx=parm.length-1;
+		id=parm[indx];	
+ 		
+	var test= $.ajax({
+		url:"profile/cook/"+id,
+//		data:JSON.stringify(id),
+		type:"GET",
+		dataType:"json",
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+	})
+	.done(function(json){
+		console.log(json); 
+		cookProfileData(json.profileResponse);
+	})
+	.fail(function(xhr, status, errorThrown){
+		alert("Error in getProfile ajax call");
+	});	
+
+// to append data to html
+	function cookProfileData(responseText){
+	// Add the server data to the template
+	$("#profileTemplate").tmpl(responseText).appendTo("#profileContainer");
+       	
+	}
+})
+</script>
+
+<style>
+	header{
+		height:450px;
+		border:2px solid grey;
+		border-radius: 10px;	
+	}
+	img{
+		width:100px; 
+		height:100px;
+		margin:40px 0px 0px 3%;
+		border: 3px solid grey; 
+		border-radius: 20px;
+		display: block;
+	}
+</style>
 </head>
+
 <body>
-Hi I am profile 
+<div th:include="header"></div>   
+<!--
+	<header>	
+		<img src="#.jpg">
+		<h2 style="margin-left:3%">Harish Pal Chauhan</h2>
+	</header>                                                           -->
+	<div id="profileContainer"></div>
+	<script  id="profileTemplate" type="text/x-jQuery-tmpl">
+	  <div>
+		<h4 id="aboutMe">About Me:</h4> 
+		<h4 id="rating">My Rating:</h4>
+		<h4 class="profileDetails">My Specialities: ${speciality}</h4>
+		<h4 class="profileDetails">Charges: ${charges}</h4>
+		<h4>Contact Number:<a href="#">Please Signin to see complete profile</a></h4>
+	  </div> 	
+	</script>
+	
+	
 </body>
 </html>

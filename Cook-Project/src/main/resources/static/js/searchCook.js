@@ -46,8 +46,8 @@ function cookSearchData(responseText){
        	
 }
 
-function testFunction(id){
-	alert('Hi -- '+id);
+function getProfile(id){
+	window.location.href="cook-profile?id="+id;
 }
 
 
