@@ -8,9 +8,10 @@
 
 <link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" href="../static/style/Search_Cook.css" th:href="@{style/Search_Cook.css}"/>
-<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}" />
+<link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}" />
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/jquery.tmpl.min.js" th:src="@{bootstrap/js/jquery.tmpl.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
 <script type="text/javascript" src="../static/js/searchCook.js"  th:src="@{js/searchCook.js}"></script>
@@ -20,25 +21,35 @@
 
    <div th:include="header"></div>
 	
-	<div class="container">
-		<div class="starter-template">
-			<p class="lead">Select Your location!</p>
-			<label>City</label>
-				<select name="City">
+	<div class="container font-body">
+		<div class="search-template">
+			<p class="para-text">Select Your location!</p>
+			
+			<div class="search-criteria">
+				<label class="normal-text">City</label>
+				<select name="City" class="normal-text">
 					<option value="Bangalore" selected="selected">Bangalore</option>
 				</select>
-			<label>Area</label>
-			<select name="Area" id ="areaSearch"></select>
-			<input type="submit" value="Search" class="btn-primary"
+				<br class="hide-inline-element"/>
+			   <label class="normal-text">Area</label>
+				<select name="Area" id ="areaSearch" class="normal-text"></select>
+				<input type="submit" value="Search" class="btn-primary button-text"
 						onclick="searchCook();"></input>
+			</div>
 		
 		</div>
-	<div id="searchResults">
-		<table id="cookData">
-	<!-- data populated by javascript goes here !-->
-		</table>
-
-	</div>
+	<div id="searchContainer" class="row font-body search-results"></div>
+	
+	
+	<script  id="searchTemplate" type="text/x-jQuery-tmpl">
+		<div class="col-md-6 col-xs-12 ">
+			<div class="normal-text">Name : ${firstName} ${lastName}</div>
+			<div class="normal-text">Charges: ${charges}</div>
+			<div class="normal-text">Speciality: ${speciality}</div>
+			<button onClick = "testFunction(${userId})" class="button-text">Visit Profile</button>
+		</div>
+	
+	</script>
 	</div>
 	
 </body>

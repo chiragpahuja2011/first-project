@@ -31,27 +31,30 @@
 	<div class="starter-template">
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
-				<p class="paraText">Find The Best Cook In Your Area! </p>
-				<p class="paraText">Select Your location!</p>
-				<label class="normalText">City</label>
-				<select name="City" class="normalText">
+				<p class="para-text">Find The Best Cook In Your Area! </p>
+				<p class="para-text">Select Your location!</p>
+			<div class="search-criteria">
+				<label class="normal-text">City</label>
+				<select name="City" class="normal-text">
 					<option value="Bangalore" selected="selected">Bangalore</option>
 				</select>
 				<br class="hide-inline-element"/>
-			   <label class="normalText">Area</label>
-				<select name="Area" id ="areaSearch" class="normalText"></select>
-				<input type="submit" value="Search" class="btn-primary buttonText"
+			   <label class="normal-text">Area</label>
+				<select name="Area" id ="areaSearch" class="normal-text"></select>
+				<input type="submit" value="Search" class="btn-primary button-text"
 						onclick="searchCook();"></input>
 			</div>
-			
+			</div>
 			<div class="col-md-6 col-xs-12">
-				<p class="paraText">Are You A Cook?</p>
-				<p class="paraText">Sign Up To Register!</p>
+				<p class="para-text">Are You A Cook?</p>
+				<p class="para-text">Sign Up To Register!</p>
+				<div class="search-criteria">
 				<input type="submit" value="Sign-Up"
-					class="btn-primary buttonText" onclick="signUp();"></input> 
+					class="btn-primary button-text" onclick="signUp();"></input> 
 				<input
-					type="submit" class="btn-primary buttonText" value="Login"
+					type="submit" class="btn-primary button-text" value="Login"
 					onclick="uploadImage();"></input>
+				</div>
 
 			</div>
 		</div>
