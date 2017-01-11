@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="../static/style/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}"/>
+<link rel="stylesheet" href="../static/style/signup.css" th:href="@{style/signup.css}"/>
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
@@ -23,46 +24,46 @@
 	
    <div th:include="header"></div>
 	
-	<div id="signupArea" class="container">
-			<h1 id="mainHeading" >Welcome! Fill in the details to join us.</h1>
+	 <div id="signupArea" class="container font-body">
+			<h1  style="text-align: center;">Welcome! Fill in the details to join us.</h1>
 			
-			<form action="javascript:submitSignUp()" id="register" role="form">
+			<form action="javascript:submitSignUp()" id="register" role="form" class="form-adjust">
 
-				<div class="nameHead formLabel">Name :</div>
-				<input class="boxes formInput" type="text" name="firstName" id="firstName" value="" placeholder="First name" required="required"/> 
-				<input 	class="boxes formInput" type="text" name="lastName" id="lastName" value="" placeholder="Last name" required="required"></input>
+				<div class="form-label normal-text normal-text">Name :</div>
+				<input class="input-box normal-text" type="text" name="firstName" id="firstName" value="" placeholder="First name" required="required"/> 
+				<input 	class="input-box normal-text" type="text" name="lastName" id="lastName" value="" placeholder="Last name" required="required"></input>
 				
-				<div class="nameHead formLabel">User Name/Email:</div>
-				<input class="boxes formInput" type="text" name="userName" id="userName" value="" placeholder="Ex:abc@gmail.com" required="required"></input>
+				<div class="form-label normal-text">User Name/Email:</div>
+				<input class="input-box normal-text" type="text" name="userName" id="userName" value="" placeholder="Ex:abc@gmail.com" required="required"></input>
 				
-				<div class="nameHead formLabel">Password:</div>
-				<input class="boxes formInput" type="password" name="password" id="userPassword" value="" required="required"></input>
+				<div class="form-label normal-text">Password:</div>
+				<input class="input-box normal-text" type="password" name="password" id="userPassword" value="" required="required" placeholder="Password"></input>
 				
-				<div class="nameHead formLabel">Confirm Password:</div>
-				<input class="boxes formInput" type="password" name="password" id="confirmPassword" value=""  required="required"></input>
+				<div class="form-label normal-text">Confirm Password:</div>
+				<input class="input-box normal-text" type="password" name="password" id="confirmPassword" value=""  required="required" placeholder="Confirm Password"></input>
 				
-				<div class="nameHead formLabel">Age:</div>
-				<input class="boxes formInput" type="number"	name="age" id="userAge" value=""></input>
+				<div class="form-label normal-text">Age:</div>
+				<input class="input-box normal-text" type="number"	name="age" id="userAge" value="" placeholder="age"></input>
 					
-				<div class="nameHead formLabel">Gender</div> 
-				<input type="radio" value="M" name="gender" required="required" />Male
-				<input type="radio" value="F" name="gender" />Female
+				<div class="form-label normal-text">Gender</div> 
+				<input type="radio" value="M" name="gender" required="required" class="normal-text"/><label class="form-label normal-text">Male</label>
+				<input type="radio" value="F" name="gender" class="normal-text" /><label class="form-label normal-text">Female</label>
 					
-				<div class="nameHead formLabel">Mobile Number:</div>  
-				<input class="boxes formInput" type="text"  id="mobileNumber" name="mobileNumber" value="" maxlength="10" required="required"></input>
-				<div class="nameHead formLabel">Speciality</div>
+				<div class="form-label normal-text">Mobile Number:</div>  
+				<input class="input-box normal-text" type="text"  id="mobileNumber" name="mobileNumber" value="" maxlength="10" required="required" placeholder="Phone Number"></input>
+				<div class="form-label normal-text">Speciality</div>
 				<div id="specData"></div>
 
-				<div class="nameHead formLabel">Work Area:</div> 
+				<div class="form-label normal-text">Work Area:</div> 
 				<select multiple="multiple" id="workSelect"></select>
 
-				<div class="nameHead formLabel">Charge/Month:</div> 
-				<input class="boxes" type="number" name="salary" id="salary" value="" placeholder="how much would you charge?"></input>
+				<div class="form-label normal-text">Charge/Month:</div> 
+				<input class="input-box normal-text" type="number" name="salary" id="salary" value="" placeholder="how much would you charge?"></input>
 				<div>
-				<input type="submit" value="Sign-Up" class="submitButton submitSignup" style="border:outset; border-width:0px; margin-top: 10px; font-size:1.5em;"
+				<input type="submit" value="Sign-Up" class="btn-primary button-text" style="border:outset; border-width:0px; margin-top: 10px; font-size:1.5em;"
 					onsubmit="submitSignUp()"></input>
 				</div>
 			</form>
-	</div>
+	</div> 
 </body>
 </html>

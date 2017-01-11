@@ -1,0 +1,39 @@
+.input-box {
+	border-radius: 5px;
+	border: outset;
+	border-width: 0.1px;
+	padding: 5px;
+	width: 200px;
+	border-color: gray;
+	padding: 5px;
+}
+
+.form-label {
+	margin-bottom: 3px;
+	padding: 5px;
+	font-weight: 700;
+}
+
+.form-adjust {
+	margin: 0 auto;
+	width: 450px;
+	padding: 20px;
+}
+
+h1 {
+	font-weight: 500;
+	color: black;
+}
+
+@media ( max-width : 600px) {
+	.form-adjust {
+		margin: 0 auto;
+		width: 300px;
+		padding: 10px 15px 10px 15px;
+	}
+	h1 {
+		font-size: 20px;
+		font-weight: 500;
+		color: black;
+	}
+}
