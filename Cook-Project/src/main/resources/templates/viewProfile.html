@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1"></meta>
-<title>View Cook profile page</title>
-</head>
-<body>
-Page to be viewed from visit full profile
+<title>Cook Profile</title>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
+<link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}" />
+<link rel="stylesheet" href="../static/style/profile.css" th:href="@{style/profile.css}" />
+
+<script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/jquery.tmpl.min.js" th:src="@{bootstrap/js/jquery.tmpl.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<script>
+$(function(){
+	
+	var url = document.location.href;
+	var parm = url.split('=');
+	var indx=id=0;
+		indx=parm.length-1;
+		id=parm[indx];	
+ 		
+	var test= $.ajax({
+		url:"profile/cook/"+id,
+		type:"GET",
+		dataType:"json",
+		headers: { 
+			'Accept': 'application/json',
+			'Content-Type': 'application/json' 
+		},
+	})
+	.done(function(json){
+		console.log(json); 
+		cookProfileData(json.profileResponse);
+	})
+	.fail(function(xhr, status, errorThrown){
+		alert("Error in getProfile ajax call");
+	});	
+
+// to append data to html
+	function cookProfileData(responseText){
+	// Add the server data to the template
+	$("#profileTemplate").tmpl(responseText).appendTo("#profileContainer");
+       	
+	}
+})
+</script>
+
+<style>
+	header{
+		height:450px;
+		border:2px solid grey;
+		border-radius: 10px;	
+	}
+	img{
+		width:100px; 
+		height:100px;
+		margin:40px 0px 0px 3%;
+		border: 3px solid grey; 
+		border-radius: 20px;
+		display: block;
+	}
+</style>
+</head>
+
+<body>
+<div th:include="header"></div>   
+	<div id="profileContainer" class="font-body"></div>
+	<script  id="profileTemplate" type="text/x-jQuery-tmpl">
+	  <div>
+		<h4 id="aboutMe">About Me:</h4> 
+		<h4 id="rating">My Rating:</h4>
+		<h4 class="profileDetails">My Specialities: ${speciality}</h4>
+		<h4 class="profileDetails">Charges: ${charges}</h4>
+		<h4>Contact Number:<a href="#">Please Signin to see complete profile</a></h4>
+	  </div> 	
+	</script>
+	
+	
 </body>
 </html>

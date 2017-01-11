@@ -3,7 +3,6 @@ package com.community.cook.service.impl;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -114,10 +113,9 @@ public class SignUpServiceImpl implements SignUpService {
 
 		if(MapUtils.isNotEmpty(specialities)){
 			List<ObjectNode> specNode = new ArrayList<ObjectNode>();
- 			Iterator it = specialities.entrySet().iterator();
-			while (it.hasNext()) {
+			
+			for(Map.Entry<String, String> pair: specialities.entrySet()){
 				ObjectNode node = jacksonMapper.createObjectNode();
-				Map.Entry pair = (Map.Entry)it.next();
 				node.put("spec_code", (String)pair.getKey());
 				node.put("spec_desc", (String)pair.getValue());
 				specNode.add(node);
@@ -125,13 +123,10 @@ public class SignUpServiceImpl implements SignUpService {
 			outoutNode.put("specData", specNode.toString());
 		}
 
-
 		if(MapUtils.isNotEmpty(areas)){
 			List<ObjectNode> areaNode = new ArrayList<ObjectNode>();
-			Iterator it = areas.entrySet().iterator();
-			while (it.hasNext()) {
+			for(Map.Entry<String, String> pair: areas.entrySet()){
 				ObjectNode node = jacksonMapper.createObjectNode();
-				Map.Entry pair = (Map.Entry)it.next();
 				node.put("area_code", (String)pair.getKey());
 				node.put("area_desc", (String)pair.getValue());
 				areaNode.add(node);

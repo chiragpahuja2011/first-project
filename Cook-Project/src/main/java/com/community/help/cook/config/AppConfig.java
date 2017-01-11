@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 
 @Configuration
 @EnableCaching
-@ComponentScan({ "com.community.help.cook.*" })
+@ComponentScan({ "com.community.help.*" })
 public class AppConfig {
 	
 	@Bean

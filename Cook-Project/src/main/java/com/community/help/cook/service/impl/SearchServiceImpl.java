@@ -87,7 +87,7 @@ public class SearchServiceImpl implements SearchService {
 				userResponse.add(userInfoResponse);
 			}
 			responseNode.put("size", userResponse.size());
-			responseNode.put("searchResponse", jacksonMapper.valueToTree(userResponse));
+			responseNode.set("searchResponse", jacksonMapper.valueToTree(userResponse));
 		}
 		return responseNode;
 	}

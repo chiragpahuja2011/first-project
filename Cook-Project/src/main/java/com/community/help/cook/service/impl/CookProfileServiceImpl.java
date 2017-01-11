@@ -72,7 +72,7 @@ public class CookProfileServiceImpl implements CookProfileService {
 				userInfoResponse.setWorkingArea(areas);
 			}
 			
-			response.put("profileResponse", jacksonObjectMapper.valueToTree(userInfoResponse));
+			response.set("profileResponse", jacksonObjectMapper.valueToTree(userInfoResponse));
 			return response;
 			
 		}else{

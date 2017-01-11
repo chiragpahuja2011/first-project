@@ -50,7 +50,7 @@ public class CookUser implements Serializable {
 	private String gender;
 
 	@Column(name = "mobile_number")
-	private Integer mobileNumber;
+	private Long mobileNumber;
 
 	@Column(name = "charge_month")
 	private Integer chargeMonthly;
@@ -146,11 +146,11 @@ public class CookUser implements Serializable {
 		this.gender = gender;
 	}
 
-	public Integer getMobileNumber() {
+	public Long getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

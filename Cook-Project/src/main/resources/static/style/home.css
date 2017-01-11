@@ -19,11 +19,6 @@ body {
 	text-align: center;
 }
 
-.search-template{
-	padding: 40px 15px;
-	text-align: center;
-}
-
 .header-gradient {
 	background-color: rgba(0, 0, 0, 0.8);
     background: repeating-linear-gradient(black, #753636 2px);
@@ -52,15 +47,6 @@ body {
 	display: none; 
 }
 
-.search-criteria {
-	padding : 10px;
-}
-
-.search-results{
-	background-color: #aeaec1; 
-	padding:10px 0 10px 150px;
-}
-
 @media (max-width: 600px) {
  .starter-template {
 	padding: 40px 15px;
@@ -84,16 +70,6 @@ body {
 
 .hide-inline-element{
 	display: block; 
-}
-
-.search-template {
-	padding: 15px  15px 5px 15px;
-	text-align: center;
-}
-
-.search-results{
-	background-color: #aeaec1; 
-	padding:0px;
 }
 
 }

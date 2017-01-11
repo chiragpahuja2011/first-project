@@ -1,0 +1,36 @@
+.search-template{
+	padding: 40px 15px;
+	text-align: center;
+}
+
+
+button {
+	cursor:pointer;
+	cursor:hand;
+	background-color:rgba(239, 75, 75, 0.9);
+	color:white;
+	border-radius:3px;
+	border:none;
+	font-family: 'Ubuntu Condensed', sans-serif;	
+}
+
+.search-results{
+	background-color: #aeaec1; 
+	padding:10px 0 10px 150px;
+}
+
+
+.search-criteria {
+	padding : 10px;
+}
+
+@media (max-width: 600px) {
+.search-template {
+	padding: 15px  15px 5px 15px;
+	text-align: center;
+}
+
+.search-results{
+	background-color: #aeaec1; 
+	padding:0px;
+}
