@@ -7,9 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
 <link rel="stylesheet" href="../static/style/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" href="../static/style/Cook_Home_Final.css" th:href="@{style/Cook_Home_Final.css}"/>
-<link rel="stylesheet" href="../static/style/Login.css" th:href="@{style/Login.css}"/>
-<link rel="stylesheet" href="../static/style/Signup.css" th:href="@{style/Signup.css}"/>
+<link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}"/>
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
@@ -25,30 +23,30 @@
 	
    <div th:include="header"></div>
 	
-	<div id="signupArea">
-			<h1 id="mainHeading" style="text-align:center;">Welcome! Fill in the details to join us.</h1>
+	<div id="signupArea" class="container">
+			<h1 id="mainHeading" >Welcome! Fill in the details to join us.</h1>
 			
-			<form action="javascript:submitSignUp()" id="register" role="form" style="margin-left:40%">
+			<form action="javascript:submitSignUp()" id="register" role="form">
 
 				<div class="nameHead formLabel">Name :</div>
-				<input class="boxes formInput" type="text" name="firstName" id="firstName" value="" placeholder="First name" required="required"> </input>
+				<input class="boxes formInput" type="text" name="firstName" id="firstName" value="" placeholder="First name" required="required"/> 
 				<input 	class="boxes formInput" type="text" name="lastName" id="lastName" value="" placeholder="Last name" required="required"></input>
 				
 				<div class="nameHead formLabel">User Name/Email:</div>
 				<input class="boxes formInput" type="text" name="userName" id="userName" value="" placeholder="Ex:abc@gmail.com" required="required"></input>
 				
 				<div class="nameHead formLabel">Password:</div>
-				<input class="boxes formInput" type="password" name="password" id="userPassword" value="" content="hidden" required="required"></input>
+				<input class="boxes formInput" type="password" name="password" id="userPassword" value="" required="required"></input>
 				
 				<div class="nameHead formLabel">Confirm Password:</div>
-				<input class="boxes formInput" type="password" name="password" id="confirmPassword" value="" content="hidden" required="required"></input>
+				<input class="boxes formInput" type="password" name="password" id="confirmPassword" value=""  required="required"></input>
 				
 				<div class="nameHead formLabel">Age:</div>
 				<input class="boxes formInput" type="number"	name="age" id="userAge" value=""></input>
 					
 				<div class="nameHead formLabel">Gender</div> 
-				<input type="radio" value="M" name="gender" required="required">Male</input>
-				<input type="radio" value="F" name="gender">Female</input>
+				<input type="radio" value="M" name="gender" required="required" />Male
+				<input type="radio" value="F" name="gender" />Female
 					
 				<div class="nameHead formLabel">Mobile Number:</div>  
 				<input class="boxes formInput" type="text"  id="mobileNumber" name="mobileNumber" value="" maxlength="10" required="required"></input>
