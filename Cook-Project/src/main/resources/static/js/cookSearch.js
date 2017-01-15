@@ -97,12 +97,12 @@ function loadData(){
 				$('#workSelect').html("");
 				var specInput = JSON.parse(specData);
 				$.each(specInput, function() {	
-					var html = '<input type="checkbox" name="speciality" value="'+this.spec_code+'">'+this.spec_desc+'</input>';
+					var html = '<input type="checkbox" name="speciality" class="multi-width" value="'+this.spec_code+'">'+this.spec_desc+'</input>';
 					$('#specData').append(html);
 				});
 				var areaInput = JSON.parse(areaData);
 				$.each(areaInput, function() {	
-					var html = '<option value='+this.area_code+'>'+this.area_desc+'</option>';
+					var html = '<option class="normal-text work-area" value='+this.area_code+'>'+this.area_desc+'</option>';
 					$('#workSelect').append(html);
 				});
 			}
