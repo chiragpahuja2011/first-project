@@ -34,3 +34,8 @@ button {
 	background-color: #aeaec1; 
 	padding:0px;
 }
+
+.button-search{
+	width: 100px;
+    margin-left: 10%;
+}
