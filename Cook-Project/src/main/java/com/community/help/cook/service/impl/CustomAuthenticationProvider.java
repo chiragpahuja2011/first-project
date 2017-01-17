@@ -14,6 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import com.community.help.cook.bean.UserInformationResponse;
 import com.community.help.cook.dao.UserDao;
 import com.community.help.cook.domain.CookUser;
 
@@ -29,15 +30,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
+		UserInformationResponse response = new UserInformationResponse();
 		String username = authentication.getName();
 		String password = (String)authentication.getCredentials();
 		if(validateUserName(username, password)){
 			CookUser cookUser =	userDao.findByEmailIdAndPassword(username, password);
 			if(null != cookUser){
+				response.setUserId(cookUser.getUserId());
+				response.setFirstName(username);
 				LOGGER.info("User iS present ");
 				List<GrantedAuthority> grantedAuths = new ArrayList<>();
 				grantedAuths.add(new SimpleGrantedAuthority(COOK_USER_ROLE));
-				return new UsernamePasswordAuthenticationToken(authentication.getName(), authentication.getCredentials(), grantedAuths);
+				return new UsernamePasswordAuthenticationToken(response, authentication.getCredentials(), grantedAuths);
 			}else{
 				LOGGER.info("User Not Present ");
 				return null;
