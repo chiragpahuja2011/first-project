@@ -5,21 +5,31 @@
 <meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-
+ 
 <link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
+
+<link rel="stylesheet" href="../static/style/cookProfile.css" th:href="@{style/cookProfile.css}" />        
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/jquery.tmpl.min.js" th:src="@{bootstrap/js/jquery.tmpl.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
-<script th:inline="javascript">
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Farsan'); 
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+</style>
+<script>
 $(function(){
- 	var id;
-	 <th:block>
- 		 console.log('hi i was here ');
- 		id = [[${#authentication.principal.userId}]];
- 	 </th:block>	 
+	
+	var url = document.location.href;
+	var parm = url.split('=');
+	var indx=id=0;
+		indx=parm.length-1;
+		id=parm[indx];	
+ 		
 	var test= $.ajax({
 		url:"profile/cook/"+id,
+//		data:JSON.stringify(id),
 		type:"GET",
 		dataType:"json",
 		headers: { 
@@ -32,7 +42,7 @@ $(function(){
 		cookProfileData(json.profileResponse);
 	})
 	.fail(function(xhr, status, errorThrown){
-		//alert("Error in getProfile ajax call");
+		alert("Error in getProfile ajax call");
 	});	
 
 // to append data to html
@@ -44,61 +54,49 @@ $(function(){
 })
 </script>
 
-<style>
-	header{
-		height:450px;
-		border:2px solid grey;
-		border-radius: 10px;	
-	}
-	img{
-		width:100px; 
-		height:100px;
-		margin:40px 0px 0px 3%;
-		border: 3px solid grey; 
-		border-radius: 20px;
-		display: block;
-	}
-</style>
+
 </head>
 
 <body>
-<div th:include="header"></div>   
+<div class="modal-body">
+<div class="container-fluid">
+<div th:include="header"></div>
 
-	<!-- 
+<div class="container" style="width:100%;">
+	<div class="row">
+		<div class="col-xs-6">
+			<div id="profilePic">
+				<img th:src="@{/images/Sample_Photo.jpg}" 
+					src="../static/images/Sample_Photo.jpg" alt="Cook_Profile_Photo" style="width:100%" 
+					class="img-thumbnail"/>  				
+				<div class="caption">
+					<h3>Cook_Name</h3>
+				</div>
+			</div>
+		</div>
+	<div class="col-xs-6">
 	<div id="profileContainer"></div>
 	<script  id="profileTemplate" type="text/x-jQuery-tmpl">
 	  <div>
-		<h4 id="aboutMe">About Me:</h4> 
-		<h4 id="rating">My Rating:</h4>
-		<h4 class="profileDetails">My Specialities: ${speciality}</h4>
-		<h4 class="profileDetails">Charges: ${charges}</h4>
-		<h4>Contact Number:<a href="#">Please Signin to see complete profile</a></h4>
-	  </div> 	
-	</script>	
-	
-	<div sec:authorize ="hasAuthority('COOK_USER3')">
-                    This content is only shown to administrators.
-                </div>
-	
-	Test user: <span sec:authentication="principal.firstName"></span>
-	Roles: <span sec:authentication="authorities"></span>
-		user: id :  <span sec:authentication="principal.userId"></span> -->
-		
-		<div style="height:450px;border:2px solid grey;border-radius: 10px;">	
-		<img src="Harish_Photo.jpg" style="width:200px; height:200px;border: 3px solid grey; border-radius: 20px;display:block;position:relative;margin:auto;margin-top:17em;" />
-	</div>
-	<div style="font-family:sans-serif;margin-top:3em;margin-left:1em;">
-		<h3 id="name">Name:</h3>
 		<h3 id="aboutMe">About Me:</h3> 
 		<h3 id="rating">My Rating:</h3>
-		<h3 id="speciality">My Specialities:</h3>
-		<ul id ="list"><li>North Indian</li></ul>
-		<h3>Please Sign-in/sign-up to see complete profile</h3>
-				<h4>Already a user? <button>Sign-In</button> New User? <button>Sign-up</button></h4>
-		
-		
+		<h3 class="profileDetails">My Specialities: ${speciality}</h3>
+		<h3 class="profileDetails">Charges: ${charges}</h3>
+		<h3>Please Sign-In to see complete profile</h3>
+		<label>Exsiting User</label> <br></br>
+		<button type="button" class="btn btn-success btn-lg">Sign-In</button> <br></br>
+		<label>New User</label> <br></br>
+		<button type="button" class="btn btn-success btn-lg">Sign-Up</button>
+		    	
+	  </div> 	
+	</script>   
 	</div>
-	
+	</div>
+
+            
+</div>	
+</div>
+</div>
 	
 </body>
 </html>

@@ -13,8 +13,6 @@
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/cookSearch.js"	th:src="@{js/cookSearch.js}"></script>
 
-<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed'
-	rel='stylesheet' type='text/css' />
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -22,7 +20,11 @@
 	});
 </script>
 
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Farsan'); 
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+</style>
 </head>
 <body>
    <div th:include="header"></div>
@@ -45,15 +47,15 @@
 						onclick="searchCook();"></input>
 			</div>
 			</div>
-			<div class="col-md-6 col-xs-12 mobile-view">
+			<div class="col-md-6 col-xs-12">
 				<p class="para-text">Are You A Cook?</p>
-				<p class="para-text">Login/Sign Up To Register!</p>
+				<p class="para-text">Sign Up To Register!</p>
 				<div class="search-criteria">
 				<input type="submit" value="Sign-Up"
 					class="btn-primary button-text" onclick="signUp();"></input> 
 				<input
 					type="submit" class="btn-primary button-text" value="Login"
-					onclick="login();"></input>
+					onclick="uploadImage();"></input>
 				</div>
 
 			</div>

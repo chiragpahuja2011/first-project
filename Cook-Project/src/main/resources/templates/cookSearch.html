@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
 <link rel="stylesheet" 	href="../static/style/bootstrap/css/bootstrap.min.css" 	th:href="@{bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" href="../static/style/cookSearch.css" th:href="@{style/cookSearch.css}"/>
+<!--<link rel="stylesheet" href="../static/style/Search_Cook.css" th:href="@{style/Search_Cook.css}"/>  -->
 <link rel="stylesheet" href="../static/style/home.css" th:href="@{style/home.css}" />
+<link rel="stylesheet" href="../static/style/cookProfile.css" th:href="@{style/cookProfile.css}" />        
 
 <script type="text/javascript" src="../static/js/jquery.min.js"	th:src="@{js/jquery.min.js}"></script>
 <script type="text/javascript" src="../static/bootstrap/js/jquery.tmpl.min.js" th:src="@{bootstrap/js/jquery.tmpl.min.js}"></script>
@@ -45,11 +46,66 @@
 			<div class="normal-text">Name : ${firstName} ${lastName}</div>
 			<div class="normal-text">Charges: ${charges}</div>
 			<div class="normal-text">Speciality: ${speciality}</div>
-			<button onClick = "getProfile(${userId})" class="button-text button-search">Visit Profile</button>
+			<button onClick = "getProfile(${userId})" class="button-text" data-toggle="modal" data-target="#myModal">
+			Visit Profile</button>
 		</div>
 	
 	</script>
 	</div>
-	
+
+         <!--                               Modal-Cook-Profile                     -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+ <!--       <h3 class="modal-title" id="exampleModalLabel">My-Profile</h3>   -->    
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+<div class="modal-body">
+<div class="container-fluid">
+<!-- <div th:include="header"></div>    -->
+
+<div class="container" style="width:100%;">
+	<div class="row">
+		<div class="col-xs-6">
+			<div id="profilePic">
+				<img th:src="@{/images/Sample_Photo.jpg}" 
+					src="../static/images/Sample_Photo.jpg" alt="Cook_Profile_Photo" style="width:100%" 
+					class="img-thumbnail"/>  				
+				<div class="caption">
+					<h3>Cook_Name</h3>
+				</div>
+			</div>
+		</div>
+	<div class="col-xs-6">
+	<div id="profileContainer"></div>
+	<script  id="profileTemplate" type="text/x-jQuery-tmpl">
+	  <div>
+		<h3 id="aboutMe">About Me:</h3> 
+		<h3 id="rating">My Rating:</h3>
+		<h3 class="profileDetails">My Specialities: ${speciality}</h3>
+		<h3 class="profileDetails">Charges: ${charges}</h3>
+		<h3>Please Sign-In to see complete profile</h3>
+		<label>Exsiting User</label> <br></br>
+		<button type="button" class="btn btn-success btn-lg">Sign-In</button> <br></br>
+		<label>New User</label> <br></br>
+		<button type="button" class="btn btn-success btn-lg">Sign-Up</button>
+		    	
+	  </div> 	
+	</script>   
+	</div>
+	</div>
+
+            
+</div>	
+</div>
+</div>	
+</div>	
+</div>	
+</div>
 </body>
 </html>

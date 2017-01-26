@@ -1,0 +1,45 @@
+.modal {
+	padding-top: 50px;
+	color:white; 
+	font-weight:bold;
+	font-size:20px;
+}
+
+.container{
+/*	font-family: 'Farsan', cursive;        */
+	font-family:'Open Sans', sans-serif;
+	letter-spacing: normal;
+	text-rendering: optimizelegibility;
+}
+
+
+
+#profilePic{
+	width:40%; 
+	margin:10%; 
+	margin-top:30px;
+	height:100px;
+}
+
+h3{
+	font-size:20px;
+	font-weight:bold;
+}
+
+label{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.btn-lg{
+	width:50%;
+}
+
+
+.modal-body{
+	background-image: url('../images/body-image.jpeg');
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+
