@@ -2,103 +2,63 @@ body {
 	padding-top: 50px;
 	color: gray;
 	background: #FFFACD;
-/*	background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%,
-		#fff), linear-gradient(70deg, #e0f1ff 32%, #fffae3);
-	background-image: radial-gradient(circle, rgba(255, 255, 255, 0),
-		#dae6ea);      */
+	background:White;
 }
 
-.font-body{
-/*	font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif;       
-	font-family: 'Farsan', cursive;	      */ 
+.font-body{    
+   
 	font-family:'Open Sans', sans-serif;
     	letter-spacing: normal;
     	text-rendering: optimizelegibility;
 	font-size: 20px;
 }
 
-.starter-template {
-	padding: 100px 15px;
-	text-align: center;
+li{
+	
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Courgette', cursive;
 }
 
-.search-template{
-	padding: 40px 15px;
-	text-align: center;
+.navbar-brand{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Courgette', cursive;
+
 }
 
 .header-gradient {
 	background-color: rgb(16,0,0);
-	font-size: 20px;
-	font-weight:bold;	
-/*    background: repeating-linear-gradient(black, #753636 2px);
-    border-radius: 10px;    */
-}
-
-.para-text {
-	margin: 15px;
 	font-size: 25px;
-    line-height: 25px;
-	color: #333;
+	font-weight:bold;	
+    	font-family: 'Open Sans', sans-serif;
+    	font-family: 'Courgette', cursive;
+
 }
 
-.normal-text {
-	font-size: 16px;
-    line-height: 22px;
-	color: #333;
+
+.para-text{
+	font-weight:bold;
+}
+@media screen and (min-width:480px){
+	.btn{
+		width:130px;
+	}
 }
 
-.button-text {
-	font-size: 16px;
-	
-}
 
-.hide-inline-element{
-	display: none; 
+.search-criteria{
+	margin-top:20px;
+	text-align:center;
 }
-
-.search-criteria {
-	padding : 10px;
-}
-
-.search-results{
-	background-color: #aeaec1; 
-	padding:10px 0 10px 150px;
-}
-
-@media (max-width: 600px) {
- .starter-template {
-	padding: 40px 15px;
-	text-align: center;
-}
-
-.para-text {
-	margin: 10px;
-	font-size: 15px;
-    line-height: 22px;
-}
-
-.normal-text {
-	font-size: 15px;
-    line-height: 22px;
-}
-
-.button-text {
-	font-size: 13px;
-}
-
-.hide-inline-element{
-	display: block; 
-}
-
 .search-template {
+
 	padding: 15px  15px 5px 15px;
 	text-align: center;
 }
 
 .search-results{
-	background-color: #aeaec1; 
+	background-color: rgba(208,92,272,0.1); 
 	padding:0px;
 }
 
-}
+
+

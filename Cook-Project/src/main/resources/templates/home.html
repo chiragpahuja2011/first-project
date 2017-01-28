@@ -16,13 +16,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+//		$("option").addClass("dropdown-item")
 		loadAreas();
 	});
 </script>
 
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Farsan'); 
+<style> 
 	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+	@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans');
 
 </style>
 </head>
@@ -31,30 +32,37 @@
 
 	<div class="container font-body">
 	<div class="starter-template">
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
+		<div class="row" style="margin-top:50px;">
+			<div class="col-xs-12 col-sm-6 col-lg-8">
 				<p class="para-text">Find The Best Cook In Your Area! </p>
 				<p class="para-text">Select Your location!</p>
-			<div class="search-criteria">
+			<div>
 				<label class="normal-text">City</label>
-				<select name="City" class="normal-text">
+				<div class="btn-group">	
+					<select name="City" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<option value="Bangalore" selected="selected">Bangalore</option>
-				</select>
-				<br class="hide-inline-element"/>
-			   <label class="normal-text">Area</label>
-				<select name="Area" id ="areaSearch" class="normal-text"></select>
-				<input type="submit" value="Search" class="btn-primary button-text"
+					</select>
+				</div>
+		<!--		<br class="hide-inline-element"/>           -->
+			   	<label class="normal-text">Area</label>
+				<div class="btn-group">
+					<select name="Area" id ="areaSearch" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					</select>
+				</div>
+				<input type="submit" value="Search" class="btn btn-success button-text"
 						onclick="searchCook();"></input>
 			</div>
 			</div>
-			<div class="col-md-6 col-xs-12">
+			<div class="col-xs-6 col-lg-4">
 				<p class="para-text">Are You A Cook?</p>
 				<p class="para-text">Sign Up To Register!</p>
-				<div class="search-criteria">
+				<div>
 				<input type="submit" value="Sign-Up"
-					class="btn-primary button-text" onclick="signUp();"></input> 
+					class="btn btn-success button-text" onclick="signUp();"></input> 
 				<input
-					type="submit" class="btn-primary button-text" value="Login"
+					type="submit" class="btn btn-success button-text" value="Login"
 					onclick="uploadImage();"></input>
 				</div>
 

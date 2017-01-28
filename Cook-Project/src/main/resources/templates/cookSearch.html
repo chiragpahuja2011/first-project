@@ -16,6 +16,13 @@
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/cookSearch.js"  th:src="@{js/cookSearch.js}"></script>
 <script type="text/javascript" src="../static/js/searchCook.js"  th:src="@{js/searchCook.js}"></script>
+
+<style> 
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+	@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans');
+
+</style>
+
 </head>
 
 <body onload="loadScript();cookSearchRequest();">
@@ -25,28 +32,34 @@
 	<div class="container font-body">
 		<div class="search-template">
 			<p class="para-text">Select Your location!</p>
-			
+
 			<div class="search-criteria">
 				<label class="normal-text">City</label>
-				<select name="City" class="normal-text">
+				<div class="btn-group">	
+					<select name="City" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<option value="Bangalore" selected="selected">Bangalore</option>
-				</select>
-				<br class="hide-inline-element"/>
-			   <label class="normal-text">Area</label>
-				<select name="Area" id ="areaSearch" class="normal-text"></select>
-				<input type="submit" value="Search" class="btn-primary button-text"
+					</select>
+				</div>
+		<!--		<br class="hide-inline-element"/>           -->
+			   	<label class="normal-text">Area</label>
+				<div class="btn-group">
+					<select name="Area" id ="areaSearch" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					</select>
+				</div>
+				<input type="submit" value="Search" class="btn btn-success button-text"
 						onclick="searchCook();"></input>
 			</div>
-		
 		</div>
 	<div id="searchContainer" class="row font-body search-results"></div>
 	
 	<script  id="searchTemplate" type="text/x-jQuery-tmpl">
-		<div class="col-md-6 col-xs-12" style="padding:5px;">
+		<div class="col-md-6 col-xs-12" style="padding:5px;font-size:17px;">
 			<div class="normal-text">Name : ${firstName} ${lastName}</div>
 			<div class="normal-text">Charges: ${charges}</div>
 			<div class="normal-text">Speciality: ${speciality}</div>
-			<button onClick = "getProfile(${userId})" class="button-text" data-toggle="modal" data-target="#myModal">
+			<button onClick = "getProfile(${userId})" class="btn btn-danger button-text" data-toggle="modal" data-target="#myModal">
 			Visit Profile</button>
 		</div>
 	
